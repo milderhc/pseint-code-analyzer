@@ -46,6 +46,7 @@ def initialize_keywords():
     keywords["sino"] = "sino"
     keywords["finsi"] = "finsi"
     keywords["segun"] = "segun"
+    keywords["caso"] = "caso"
     keywords["de"] = "de"
     keywords["otro"] = "otro"
     keywords["modo"] = "modo"
@@ -74,6 +75,7 @@ def initialize_operators():
     operators[">"] = "token_mayor"
     operators["<="] = "token_menor_igual"
     operators[">="] = "token_mayor_igual"
+
     operators["+"] = "token_mas"
     operators["-"] = "token_menos"
     operators["/"] = "token_div"
@@ -95,6 +97,9 @@ def initialize_operators():
     operators["no"] = "token_neg"
     operators["mod"] = "token_mod"
 
+#####################################################################################################
+############################################### LEXER ###############################################
+#####################################################################################################
 
 def is_other(character):
     return re.match("[ \t\n]", character)
@@ -119,7 +124,6 @@ def is_string(character):
 
 def lex_error():
     global row, col
-
     return ">>> Error lexico (linea: " + str(row + 1) + ", posicion: " + str(col + 1) + ")"
 
 
@@ -143,9 +147,7 @@ def read_number(line):
     global row, col
 
     length_line = len(line)
-
     index = col
-
     token = None
     advance = 0
 
@@ -381,6 +383,14 @@ def read_data():
 
     #return tokens
 
+
+def join_file (file):
+    str = ""
+    with open(file) as f:
+        str += "".join(line.strip() for line in f)
+    return str
+
+
 tokens = []
 keywords = {}
 operators = {}
@@ -391,7 +401,7 @@ row = 0
 col = 0
 
 examples = 12
-for i in range(12,examples + 1):
+for i in range(1,examples + 1):
     stdin = open("ejemplos/" + str(i) + ".in", "r")
     output_file = str(i) + ".out"
     stdout = open("output/" + output_file, "w")
@@ -402,14 +412,28 @@ for i in range(12,examples + 1):
 
     stdout.close()
 
-    correct = ""
-    with open("ejemplos/" + output_file) as f:
-        correct.join(line.strip() for line in f)
-
-    output = ""
-    with open("output/" + output_file) as f:
-        output.join(line.strip() for line in f)
-
-    assert correct == output, "Error in file " + output_file
+    assert join_file("ejemplos/" + output_file) == join_file("output/" + output_file), "Error in file " + output_file
 
 
+
+#####################################################################################################
+####################################### SYNTAX ANALYZER #############################################
+#####################################################################################################
+
+def read_grammar (grammar_file):
+    txt_grammar = join_file(grammar_file)
+
+    all_rules = txt_grammar.split(";")
+
+    for rule in all_rules:
+        temp = rule.split(":")
+        left_part = temp[0]
+        right_parts = temp[1].split("|")
+
+        for right_part in right_parts:
+            alpha = right_part.strip().split()
+
+            print left_part, alpha
+
+
+read_grammar("grammars/grammar1.txt")

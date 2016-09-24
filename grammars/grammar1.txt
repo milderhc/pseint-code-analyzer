@@ -1,0 +1,41 @@
+PSEINT :                 FUNCION_SUBPROC PROCESO FUNCION_SUBPROC
+                |    EOF
+;
+
+FUNCION_SUBPROC :             PROC FUNCIONSUBPROC
+                |    
+                ;
+
+PROCESO :                INICIO_PROCESO id BLOQUE FIN_PROCESO
+                ;
+
+INICIO_PROCESO :            proceso
+                |    algoritmo
+                ;
+
+FIN_PROCESO :                finproceso
+                |    finalgoritmo
+                ;
+
+PROC :                     INICIO_PROC  RETORNO id ARG_PROC BLOQUE FIN_PROC
+                ;
+
+INICIO_PROC :                funcion
+                |    subproceso
+                ;
+
+FIN_PROC :                finfuncion
+                |    finsubproceso
+                ;
+
+ARG_PROC :                 pari LISTA_ARG_PROC pard
+                |    
+                ;
+
+LISTA_ARG_PROC :             id coma LISTA_ARG_PROC
+                |    
+                ;
+
+RETORNO :                 id asig
+                |    
+                
