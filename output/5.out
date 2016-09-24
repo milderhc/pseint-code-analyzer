@@ -1,0 +1,14 @@
+<proceso,1,1>
+<id,mi_proceso,1,9>
+<definir,2,5>
+<id,b,2,13>
+<como,2,15>
+<real,2,20>
+<token_pyc,2,24>
+<definir,3,5>
+<id,c,3,13>
+<como,3,15>
+<real,3,20>
+<token_pyc,3,24>
+<id,c,5,5>
+>>> Error lexico (linea: 5, posicion: 7)

@@ -1,0 +1,13 @@
+<algoritmo,1,1>
+<id,mi_algoritmo,1,11>
+<definir,2,5>
+<id,a,2,13>
+<como,2,15>
+<entero,2,20>
+<id,a,3,5>
+<definir,4,5>
+<id,b,4,13>
+<como,4,15>
+<real,4,20>
+<id,b,5,5>
+<finproceso,6,1>
