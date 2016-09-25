@@ -1,3 +1,6 @@
+funcion h <- xd(t)
+    Escribir "hola";
+finfuncion
 algoritmo mi_algoritmo
     Definir a como Entero
     a

@@ -53,7 +53,7 @@ def generate_prediction_sets(grammar):
     write_line("predictions[rule] = pred.split(\",\")", 2)
     write_line("if left_part not in expected:", 2)
     write_line("expected[left_part] = {}", 3)
-    write_line("for p in pred:", 2)
+    write_line("for p in predictions[rule]:", 2)
     write_line("expected[left_part][p] = True", 3)
     write_line("", 0)
 
@@ -62,21 +62,27 @@ def generate_grammar_string(grammar):
     for i in xrange(len(grammar)):
         rule = grammar[i][0]
         pred = grammar[i][1]
-        write_line("\"" + string_rule(rule) + ":" + ",".join(pred) + (";\" \\" if i + 1 < len(grammar) else "\""), 2)
+        write_line("\"" + string_rule(rule) + ":" + ",".join(line.strip() for line in pred) + (";\" \\" if i + 1 < len(grammar) else "\""), 2)
 
 def generate_syntax_error():
     write_line("def syntax_error(expec, token, error_syntax_in_match):", 0)
     write_line("error = \"\"", 1)
-    write_line("error += \"Error sintactico: se encontro \\\"\" + token + \"\\\"; se esperaba: \"", 1)
+    write_line("error += \"<\" + str(token.row) + \",\" + str(token.col) + \"> Error sintactico: "\
+               "se encontro \\\"\" + token.lexema + \"\\\"; se esperaba: \"", 1)
+    write_line("if error_syntax_in_match:", 1)
+    write_line("error += \"\\\"\" + expec + \"\\\".\"", 2)
+    write_line("else:", 1)
+    write_line("for e in expected[expec]:", 2)
+    write_line("error += \"\\\"\" + e + \"\\\",\"", 3)
     write_line("return error", 1)
     write_line("", 0)
 
 def generate_match():
     write_line("def match(expected_token):", 0)
     write_line("global token", 1)
-    write_line("if token == expected_token:", 1)
-    write_line("print token, \"matched\"", 2)
-    write_line("token = next_token()", 2)
+    write_line("if token.type == expected_token:", 1)
+    write_line("print token.type, \"matched\"", 2)
+    write_line("token = get_next_token()", 2)
     write_line("else:", 1)
     write_line("print syntax_error(expected_token, token, True)", 2)
     write_line("", 0)
@@ -98,10 +104,10 @@ def generate_syntax_analyzer_code (grammar):
         if left_part not in left_parts:
             write_line("def " +  left_part + "():", 0)
             write_line("global token", 1)
-            write_line("if token in predictions[\"" + string_rule(rule) + "\"]:", 1)
+            write_line("if token.type in predictions[\"" + string_rule(rule) + "\"]:", 1)
             left_parts[left_part] = True
         else:
-            write_line("elif token in predictions[\"" + string_rule(rule) + "\"]:", 1)
+            write_line("elif token.type in predictions[\"" + string_rule(rule) + "\"]:", 1)
 
         for a in right_part:
             if is_terminal(a):
@@ -126,12 +132,12 @@ def generate_syntax_analyzer_code (grammar):
     write_line("expected = {}", 0)
     write_line("predictions = {}", 0)
     write_line("generate_prediction_sets(grammar)", 0)
-    write_line("token = next_token()", 0)
+    write_line("token = get_next_token()", 0)
     write_line(grammar[0][0][0] + "()", 0)
     #write_line("if token != token_eof:", 0)
     #write_line("print syntax_error(\"eof\")", 1)
 
 
 stdout = open("syntax_analizer.py", "w")
-generate_syntax_analyzer_code(read_grammar("grammars/grammar2.txt"))
+generate_syntax_analyzer_code(read_grammar("grammars/grammar1.txt"))
 stdout.close()

@@ -58,6 +58,8 @@ def initialize_keywords():
     keywords["que"] = "que"
     keywords["subproceso"] = "subproceso"
     keywords["finsubproceso"] = "finsubproceso"
+    keywords["funcion"] = "funcion"
+    keywords["finfuncion"] = "finfuncion"
 
     #Operators as keywords
     keywords["mod"] = "mod"
@@ -353,6 +355,35 @@ def build_token(title, lexema, r, c):
     return token
 
 
+class Token(object):
+    def __init__(self, title, lexema, r, c):
+        global keywords, operators
+
+        if lexema in keywords:
+            if lexema not in operators:
+                self.lexema = lexema
+                self.type = lexema
+            else:
+                self.lexema = operators[lexema]
+                self.type = operators[lexema]
+        elif lexema in operators:
+            self.lexema = title
+            self.type = title
+        else:
+            self.lexema = lexema.lower()
+            self.type = title
+
+        self.row = r
+        self.col = c
+
+current_token = 0
+def get_next_token():
+    global current_token, tokens
+    c = current_token
+    current_token += 1
+    return tokens[c]
+
+
 def read_data():
     global tokens, row, col
 
@@ -369,6 +400,7 @@ def read_data():
                 #print build_token(type, token, x + 1, y + 1)
 
                 #Prints in file
+                tokens.append(Token(type, token, x + 1, y + 1))
                 stdout.write(build_token(type, token, x + 1, y + 1) + "\n")
 
         if type is "lex_error":
@@ -380,6 +412,9 @@ def read_data():
 
         row += 1
         col = 0
+
+    for token in tokens:
+        print token.type, token.lexema, token.row, token.col
 
     #return tokens
 
@@ -400,8 +435,8 @@ initialize_operators()
 row = 0
 col = 0
 
-examples = 12
-for i in range(1,examples + 1):
+examples = 2
+for i in range(2,examples + 1):
     stdin = open("ejemplos/" + str(i) + ".in", "r")
     output_file = str(i) + ".out"
     stdout = open("output/" + output_file, "w")
