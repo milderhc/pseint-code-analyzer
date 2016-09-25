@@ -2,8 +2,7 @@ funcion h <- xd(t)
     Escribir "hola";
 finfuncion
 algoritmo mi_algoritmo
-    Definir a como Entero
-    a
-    Definir B como real
-    b
+    Definir a como Entero;
+    Definir B como real;
+    a <- xd(6, 2, f[jeje(2*6+f[34])][3], (2 * 3) + xd(8^2));
 FinProceso

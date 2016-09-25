@@ -367,8 +367,8 @@ class Token(object):
                 self.lexema = operators[lexema]
                 self.type = operators[lexema]
         elif lexema in operators:
-            self.lexema = title
             self.type = title
+            self.lexema = lexema
         else:
             self.lexema = lexema.lower()
             self.type = title
@@ -413,6 +413,8 @@ def read_data():
         row += 1
         col = 0
 
+    tokens.append(Token("token_eof", "token_eof", row + 1, col + 1))
+
     for token in tokens:
         print token.type, token.lexema, token.row, token.col
 
@@ -435,9 +437,9 @@ initialize_operators()
 row = 0
 col = 0
 
-examples = 2
-for i in range(2,examples + 1):
-    stdin = open("ejemplos/" + str(i) + ".in", "r")
+examples = 1
+for i in range(1,examples + 1):
+    stdin = open("ejemplos2/" + str(i) + ".in", "r")
     output_file = str(i) + ".out"
     stdout = open("output/" + output_file, "w")
 
@@ -447,7 +449,7 @@ for i in range(2,examples + 1):
 
     stdout.close()
 
-    assert join_file("ejemplos/" + output_file) == join_file("output/" + output_file), "Error in file " + output_file
+    #assert join_file("ejemplos/" + output_file) == join_file("output/" + output_file), "Error in file " + output_file
 
 
 

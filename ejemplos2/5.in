@@ -1,0 +1,13 @@
+Proceso proceso2
+    Si a<b Entonces
+        Escribir "a es mayor";
+    Sino
+        Escribir "b es mayor";
+    FinSi
+    
+    Si a<b 
+       Escribir "a es mayor";
+    Sino
+        Escribir "b es mayor";
+    FinSi
+FinProces

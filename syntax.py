@@ -73,6 +73,7 @@ def generate_syntax_error():
     write_line("error += \"\\\"\" + expec + \"\\\".\"", 2)
     write_line("else:", 1)
     write_line("for e in expected[expec]:", 2)
+    write
     write_line("error += \"\\\"\" + e + \"\\\",\"", 3)
     write_line("return error", 1)
     write_line("", 0)
@@ -81,7 +82,6 @@ def generate_match():
     write_line("def match(expected_token):", 0)
     write_line("global token", 1)
     write_line("if token.type == expected_token:", 1)
-    write_line("print token.type, \"matched\"", 2)
     write_line("token = get_next_token()", 2)
     write_line("else:", 1)
     write_line("print syntax_error(expected_token, token, True)", 2)
@@ -106,21 +106,32 @@ def generate_syntax_analyzer_code (grammar):
             write_line("global token", 1)
             write_line("if token.type in predictions[\"" + string_rule(rule) + "\"]:", 1)
             left_parts[left_part] = True
-        else:
-            write_line("elif token.type in predictions[\"" + string_rule(rule) + "\"]:", 1)
 
-        for a in right_part:
-            if is_terminal(a):
-                write_line("match(\"" + a + "\")", 2)
-            else:
-                write_line(a + "()", 2)
+            for a in right_part:
+                if is_terminal(a):
+                    write_line("match(\"" + a + "\")", 2)
+                else:
+                    write_line(a + "()", 2)
+        else:
+            if (len(right_part) == 1 and right_part[0] == "epsilon") == False:
+                write_line("elif token.type in predictions[\"" + string_rule(rule) + "\"]:", 1)
+
+                for a in right_part:
+                    if is_terminal(a):
+                        write_line("match(\"" + a + "\")", 2)
+                    else:
+                        write_line(a + "()", 2)
 
         if i + 1 < len(grammar):
             if left_part != grammar[i + 1][0][0]:
+                write_line("elif \"" + left_part + "->epsilon\" in predictions:", 1)
+                write_line("return", 2)
                 write_line("else:", 1)
                 write_line("print syntax_error(\"" + left_part + "\", token, False)", 2)
                 write_line("", 0)
         else:
+            write_line("elif \"" + left_part + "->epsilon\" in predictions:", 1)
+            write_line("return", 2)
             write_line("else:", 1)
             write_line("print syntax_error(\"" + left_part + "\", token, False)", 2)
             write_line("", 0)

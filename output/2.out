@@ -1,0 +1,10 @@
+<proceso,1,1>
+<id,mi_proceso,1,9>
+<escribir,2,5>
+<token_entero,3,2,14>
+<token_mas,2,15>
+<token_entero,1,2,16>
+<token_mul,2,17>
+<token_entero,7,2,18>
+<token_pyc,2,19>
+<finproceso,3,1>

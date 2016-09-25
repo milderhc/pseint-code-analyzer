@@ -1,0 +1,9 @@
+Funcion s<-potencia(a,b)
+    Definir s Como Real;
+    s <- a^b;
+FinFuncion
+
+Proceso potenciador
+    //Comentario
+    Escribir potencia(1,2);
+FinProceso

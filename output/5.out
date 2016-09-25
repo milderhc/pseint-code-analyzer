@@ -1,14 +1,28 @@
 <proceso,1,1>
-<id,mi_proceso,1,9>
-<definir,2,5>
-<id,b,2,13>
-<como,2,15>
-<real,2,20>
-<token_pyc,2,24>
-<definir,3,5>
-<id,c,3,13>
-<como,3,15>
-<real,3,20>
-<token_pyc,3,24>
-<id,c,5,5>
->>> Error lexico (linea: 5, posicion: 7)
+<id,proceso2,1,9>
+<si,2,5>
+<id,a,2,8>
+<token_menor,2,9>
+<id,b,2,10>
+<entonces,2,12>
+<escribir,3,9>
+<token_cadena,a es mayor,3,18>
+<token_pyc,3,30>
+<sino,4,5>
+<escribir,5,9>
+<token_cadena,b es mayor,5,18>
+<token_pyc,5,30>
+<finsi,6,5>
+<si,8,5>
+<id,a,8,8>
+<token_menor,8,9>
+<id,b,8,10>
+<escribir,9,8>
+<token_cadena,a es mayor,9,17>
+<token_pyc,9,29>
+<sino,10,5>
+<escribir,11,9>
+<token_cadena,b es mayor,11,18>
+<token_pyc,11,30>
+<finsi,12,5>
+<id,finproces,13,1>

@@ -1,0 +1,4 @@
+SubProceso f <- triple ( x )
+    Definir f Como numero;
+    f <- x*3;
+FinSubProceso

@@ -1,0 +1,9 @@
+Proceso proceso2
+    Mientras Verdadero Hacer
+        Escribir "Analizador";
+    FinMientras
+    
+    Mientras a>b 
+       Escribir "Analizador";
+    FinMientras
+FinProceso
