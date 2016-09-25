@@ -1,0 +1,4 @@
+|A: B uno|tres,cuatro
+|A: dos|dos
+|B: tres|tres
+|B: cuatro|cuatro

@@ -416,24 +416,3 @@ for i in range(1,examples + 1):
 
 
 
-#####################################################################################################
-####################################### SYNTAX ANALYZER #############################################
-#####################################################################################################
-
-def read_grammar (grammar_file):
-    txt_grammar = join_file(grammar_file)
-
-    all_rules = txt_grammar.split(";")
-
-    for rule in all_rules:
-        temp = rule.split(":")
-        left_part = temp[0]
-        right_parts = temp[1].split("|")
-
-        for right_part in right_parts:
-            alpha = right_part.strip().split()
-
-            print left_part, alpha
-
-
-read_grammar("grammars/grammar1.txt")
