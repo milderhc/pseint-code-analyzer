@@ -92,6 +92,87 @@ def initialize_operators():
     operators["no"] = "token_neg"
     operators["mod"] = "token_mod"
 
+def initialize_alias():
+    global alias
+    alias.append(['algoritmo', 'algoritmo'])
+    alias.append(['borrar', 'borrar'])
+    alias.append(['cadena', 'cadena'])
+    alias.append(['caracter', 'caracter'])
+    alias.append(['caso', 'caso'])
+    alias.append(['como', 'como'])
+    alias.append(['con', 'con'])
+    alias.append(['de', 'de'])
+    alias.append(['definir', 'definir'])
+    alias.append(['dimension', 'dimension'])
+    alias.append(['entero', 'entero'])
+    alias.append(['entonces', 'entonces'])
+    alias.append(['escribir', 'escribir'])
+    alias.append(['esperar', 'esperar'])
+    alias.append(['falso', 'falso'])
+    alias.append(['finalgoritmo', 'finalgoritmo'])
+    alias.append(['finfuncion', 'finfuncion'])
+    alias.append(['finmientras', 'finmientras'])
+    alias.append(['finpara', 'finpara'])
+    alias.append(['finproceso', 'finproceso'])
+    alias.append(['finsegun', 'finsegun'])
+    alias.append(['finsi', 'finsi'])
+    alias.append(['finsubproceso', 'finsubproceso'])
+    alias.append(['funcion', 'funcion'])
+    alias.append(['hacer', 'hacer'])
+    alias.append(['hasta', 'hasta'])
+    alias.append(['id', 'identificador'])
+    alias.append(['leer', 'leer'])
+    alias.append(['limpiar', 'limpiar'])
+    alias.append(['logico', 'logico'])
+    alias.append(['mientras', 'mientras'])
+    alias.append(['milisegundos', 'milisegundos'])
+    alias.append(['modo', 'modo'])
+    alias.append(['numerico', 'numerico'])
+    alias.append(['numero', 'numero'])
+    alias.append(['otro', 'otro'])
+    alias.append(['pantalla', 'pantalla'])
+    alias.append(['para', 'para'])
+    alias.append(['paso', 'paso'])
+    alias.append(['proceso', 'proceso'])
+    alias.append(['que', 'que'])
+    alias.append(['real', 'real'])
+    alias.append(['repetir', 'repetir'])
+    alias.append(['segun', 'segun'])
+    alias.append(['segundos', 'segundos'])
+    alias.append(['si', 'si'])
+    alias.append(['sino', 'sino'])
+    alias.append(['subproceso', 'subproceso'])
+    alias.append(['tecla', 'tecla'])
+    alias.append(['texto', 'texto'])
+    alias.append(['token_asig', '<-'])
+    alias.append(['token_cadena', 'valor_cadena'])
+    alias.append(['token_coma', ','])
+    alias.append(['token_cor_der', ']'])
+    alias.append(['token_cor_izq', '['])
+    alias.append(['token_dif', '<>'])
+    alias.append(['token_div', '/'])
+    alias.append(['token_dosp', ':'])
+    alias.append(['token_entero', 'valor_entero'])
+    alias.append(['token_igual', '='])
+    alias.append(['token_mas', '+'])
+    alias.append(['token_mayor', '>'])
+    alias.append(['token_mayor_igual', '>='])
+    alias.append(['token_menor', '<'])
+    alias.append(['token_menor_igual', '<='])
+    alias.append(['token_menos', '-'])
+    alias.append(['token_mod', '%'])
+    alias.append(['token_mul', '*'])
+    alias.append(['token_neg', '~'])
+    alias.append(['token_o', '|'])
+    alias.append(['token_par_der', ')'])
+    alias.append(['token_par_izq', '('])
+    alias.append(['token_pot', '^'])
+    alias.append(['token_pyc', ';'])
+    alias.append(['token_real', 'valor_real'])
+    alias.append(['token_y', '&'])
+    alias.append(['verdadero', 'verdadero'])
+
+
 #####################################################################################################
 ############################################### LEXER ###############################################
 #####################################################################################################
@@ -410,10 +491,12 @@ def generate_tokens(input = None, output = None):
     tokens.append(Token("EOF", "EOF", row + 1, col + 1))
 
 tokens = []
+alias = []
 keywords = {}
 operators = {}
 initialize_keywords()
 initialize_operators()
+initialize_alias()
 row = 0
 col = 0
 def generate_prediction_sets(grammar):
@@ -432,18 +515,13 @@ def generate_prediction_sets(grammar):
 
 def syntax_error(expec, token, error_syntax_in_match):
     error = ""
-    error += "<" + str(token.row) + "," + str(token.col) + "> Error sintactico: se encontro \"" + token.lexema + "\"; se esperaba: "
+    error += "<" + str(token.row) + "," + str(token.col) + "> Error sintactico: se encontro: \"" + token.lexema + "\"; se esperaba: "
     if error_syntax_in_match:
-        error += "\"" + expec + "\"."
+        error += "\"" + expec + "\". "
     else:
-        for e in expected[expec]:
-            is_operator = False
-            for op in operators:
-                if operators[op] == e:
-                    error += "\"" + op + "\", "
-                    is_operator = True
-            if is_operator == False:
-                error += "\"" + e + "\", "
+        for e in alias:
+            if e[0] in expected[expec]:
+                error += "\"" + e[1] + "\", "
     return error[:-2] + "."
 
 def match(expected_token):
@@ -1427,6 +1505,14 @@ def run_syntax_analyzer(input = None, output = None):
         stdout = open(input,"r")
 
     generate_tokens(input)
+    process_missing_error = True
+    for t in tokens:
+        if t.type == "proceso":
+            process_missing_error = False
+            break
+    if process_missing_error:
+        print "Error sintactico: falta proceso"
+        return
     token = get_next_token()
     if PSEINT():
         print "El analisis sintactico ha finalizado exitosamente."
@@ -1553,4 +1639,4 @@ predictions = {}
 generate_prediction_sets(grammar)
 
 token = Token()
-run_syntax_analyzer("ejemplos2/3.in")
+run_syntax_analyzer("ejemplos2/1.in")
