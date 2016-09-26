@@ -384,21 +384,21 @@ def next_token(line):
             else:
                 type = "token_real" if "." in token else "token_entero"
 
-    # Operator
-    if token is None and is_operator(character):
-        token, advance = read_operator(line)
-        if token is not None:
-            type = operators[token]
-
-    # Keyword or identifier
-    if token is None and is_letter(character):
-        type, token, advance = read_keyword_identifier(line)
-
     # String
     if token is None and is_string(character):
         token, advance = read_string(line)
         if token is not None:
             type = "token_cadena"
+
+    # Keyword or identifier
+    if token is None and is_letter(character):
+        type, token, advance = read_keyword_identifier(line)
+
+    # Operator
+    if token is None and is_operator(character):
+        token, advance = read_operator(line)
+        if token is not None:
+            type = operators[token]
 
     if token is None:
         type = "lex_error"

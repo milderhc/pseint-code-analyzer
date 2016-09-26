@@ -192,6 +192,9 @@ def generate_syntax_analyzer_code (grammar, lexer = "lexer.py"):
     write_line("token = Token()", 0)
     write_line("run_syntax_analyzer(\"ejemplos2/1.in\")", 0)
 
+    write_line("", 0)
+    write_line("#Replace FIN_PROCESO for BLOQUE_PROCESO", 0)
+    write_line("#Replace FIN_PROC for BLOQUE_PROC", 0)
 
 
 stdout = open("syntax_analyzer.py", "w")
