@@ -1,0 +1,15 @@
+// Este ejemplo muestra el uso de expresiones, operadores y funciones matematicas
+
+Proceso Matematicas
+
+   repetir 
+   Mientras f<=abs(N) Hacer
+                           Si N<0 
+                              Entonces r<-(-f)*r;
+                                    Sino r<-f*r;
+                           FinSi
+                           f<-f+1;
+                        FinMientras
+   
+
+FinProceso

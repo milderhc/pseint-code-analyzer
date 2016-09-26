@@ -1,0 +1,30 @@
+//Funcion que recibe y retorna valores
+SubProceso ans <- doble(x)
+    Definir ans Como Entero;
+    ans <- x*2;
+FinSubProceso
+
+//Funcion que no recibe parametros
+SubProceso ans <- saludo
+    Definir ans Como Caracter;
+    ans <- "Hola";
+FinSubProceso
+
+//No retorna pero recibe parametros
+SubProceso mostrar(x)
+    Escribir x;
+FinSubProceso
+
+SubProceso hola
+    Escribir "hola";
+FinSubProceso
+
+
+Algoritmo algo
+    mostrar( doble(2) );
+    mostrar( saludo );
+    mostrar( saludo( a(1,2,3) ) );
+    hola; hola                                      ;
+    hola;
+    saludo                   ( hola                 (a) ) ;
+FinAlgoritmo

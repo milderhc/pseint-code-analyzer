@@ -1,4 +1,9 @@
+# @Author: Milder Hernandez Cagua
+# @Author: Fabian David Conejo Piraquive
+
 import re
+from sys import stdin
+import sys
 
 def initialize_keywords():
     global keywords
@@ -53,10 +58,13 @@ def initialize_keywords():
     keywords["finsubproceso"] = "finsubproceso"
     keywords["funcion"] = "funcion"
     keywords["finfuncion"] = "finfuncion"
+    keywords["limpiar"] = "limpiar"
 
     #Operators as keywords
     keywords["mod"] = "mod"
     keywords["no"] = "no"
+    keywords["o"] = "o"
+    keywords["y"] = "y"
 
 
 def initialize_operators():
@@ -465,6 +473,8 @@ def generate_tokens(input = None, output = None):
     if input != None:
         stdin = open(input, "r")
         lines = stdin.readlines()
+    else:
+        lines = sys.stdin.readlines()
     if output != None:
         stdout = open(output, "w")
 

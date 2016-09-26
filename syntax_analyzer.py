@@ -1,4 +1,9 @@
+# @Author: Milder Hernandez Cagua
+# @Author: Fabian David Conejo Piraquive
+
 import re
+from sys import stdin
+import sys
 
 def initialize_keywords():
     global keywords
@@ -53,10 +58,13 @@ def initialize_keywords():
     keywords["finsubproceso"] = "finsubproceso"
     keywords["funcion"] = "funcion"
     keywords["finfuncion"] = "finfuncion"
+    keywords["limpiar"] = "limpiar"
 
     #Operators as keywords
     keywords["mod"] = "mod"
     keywords["no"] = "no"
+    keywords["o"] = "o"
+    keywords["y"] = "y"
 
 
 def initialize_operators():
@@ -465,6 +473,8 @@ def generate_tokens(input = None, output = None):
     if input != None:
         stdin = open(input, "r")
         lines = stdin.readlines()
+    else:
+        lines = sys.stdin.readlines()
     if output != None:
         stdout = open(output, "w")
 
@@ -515,9 +525,12 @@ def generate_prediction_sets(grammar):
 
 def syntax_error(expec, token, error_syntax_in_match):
     error = ""
-    error += "<" + str(token.row) + "," + str(token.col) + "> Error sintactico: se encontro: \"" + token.lexema + "\"; se esperaba: "
+    error += "<" + str(token.row) + ":" + str(token.col) + "> Error sintactico: se encontro: \"" + token.lexema + "\"; se esperaba: "
     if error_syntax_in_match:
-        error += "\"" + expec + "\". "
+        for e in alias:
+            if e[0] in expec:
+                error += "\"" + e[1] + "\". "
+                break
     else:
         for e in alias:
             if e[0] in expected[expec]:
@@ -619,7 +632,7 @@ def FIN_PROCESO():
     elif "FIN_PROCESO->epsilon" in predictions:
         return True
     else:
-        print syntax_error("BLOQUE_PROCESO", token, False)
+        print syntax_error("FIN_PROCESO", token, False)
         return False
     return True
 
@@ -681,7 +694,7 @@ def FIN_PROC():
     elif "FIN_PROC->epsilon" in predictions:
         return True
     else:
-        print syntax_error("BLOQUE_PROC", token, False)
+        print syntax_error("FIN_PROC", token, False)
         return False
     return True
 
@@ -757,8 +770,8 @@ def BLOQUE():
             return False
         if not BLOQUE():
             return False
-    elif token.type in predictions["BLOQUE->ASIGNACION-BLOQUE"]:
-        if not ASIGNACION():
+    elif token.type in predictions["BLOQUE->ASIGNACION_LLAMADA-BLOQUE"]:
+        if not ASIGNACION_LLAMADA():
             return False
         if not BLOQUE():
             return False
@@ -804,12 +817,43 @@ def BLOQUE():
         return False
     return True
 
+def ASIGNACION_LLAMADA():
+    global token
+    if token.type in predictions["ASIGNACION_LLAMADA->id-ASIGNACION_LLAMADA1"]:
+        if not match("id"):
+            return False
+        if not ASIGNACION_LLAMADA1():
+            return False
+    elif "ASIGNACION_LLAMADA->epsilon" in predictions:
+        return True
+    else:
+        print syntax_error("ASIGNACION_LLAMADA", token, False)
+        return False
+    return True
+
+def ASIGNACION_LLAMADA1():
+    global token
+    if token.type in predictions["ASIGNACION_LLAMADA1->ASIGNACION1"]:
+        if not ASIGNACION1():
+            return False
+    elif token.type in predictions["ASIGNACION_LLAMADA1->LLAMADA_ID_VOID-token_pyc"]:
+        if not LLAMADA_ID_VOID():
+            return False
+        if not match("token_pyc"):
+            return False
+    elif "ASIGNACION_LLAMADA1->epsilon" in predictions:
+        return True
+    else:
+        print syntax_error("ASIGNACION_LLAMADA1", token, False)
+        return False
+    return True
+
 def DECLARACION():
     global token
-    if token.type in predictions["DECLARACION->definir-LISTA_ID-como-TIPO_DATO-token_pyc"]:
+    if token.type in predictions["DECLARACION->definir-LISTA_DEFINIR_ID-como-TIPO_DATO-token_pyc"]:
         if not match("definir"):
             return False
-        if not LISTA_ID():
+        if not LISTA_DEFINIR_ID():
             return False
         if not match("como"):
             return False
@@ -869,16 +913,14 @@ def ASIGNACION1():
 
 def DIMENSION():
     global token
-    if token.type in predictions["DIMENSION->dimension-id-token_cor_izq-LISTA_EXPR-token_cor_der-token_pyc"]:
+    if token.type in predictions["DIMENSION->dimension-id-LLAMADA_DIM-DIMENSION1-token_pyc"]:
         if not match("dimension"):
             return False
         if not match("id"):
             return False
-        if not match("token_cor_izq"):
+        if not LLAMADA_DIM():
             return False
-        if not LISTA_EXPR():
-            return False
-        if not match("token_cor_der"):
+        if not DIMENSION1():
             return False
         if not match("token_pyc"):
             return False
@@ -886,6 +928,24 @@ def DIMENSION():
         return True
     else:
         print syntax_error("DIMENSION", token, False)
+        return False
+    return True
+
+def DIMENSION1():
+    global token
+    if token.type in predictions["DIMENSION1->token_coma-id-LLAMADA_DIM-DIMENSION1"]:
+        if not match("token_coma"):
+            return False
+        if not match("id"):
+            return False
+        if not LLAMADA_DIM():
+            return False
+        if not DIMENSION1():
+            return False
+    elif "DIMENSION1->epsilon" in predictions:
+        return True
+    else:
+        print syntax_error("DIMENSION1", token, False)
         return False
     return True
 
@@ -954,7 +1014,7 @@ def BLOQUE_SI1():
 
 def PARA():
     global token
-    if token.type in predictions["PARA->para-id-token_asig-EXPRESION-hasta-EXPRESION-con-paso-EXPRESION-hacer-BLOQUE_PARA"]:
+    if token.type in predictions["PARA->para-id-token_asig-EXPRESION-hasta-EXPRESION-PARA1"]:
         if not match("para"):
             return False
         if not match("id"):
@@ -967,6 +1027,18 @@ def PARA():
             return False
         if not EXPRESION():
             return False
+        if not PARA1():
+            return False
+    elif "PARA->epsilon" in predictions:
+        return True
+    else:
+        print syntax_error("PARA", token, False)
+        return False
+    return True
+
+def PARA1():
+    global token
+    if token.type in predictions["PARA1->con-paso-EXPRESION-hacer-BLOQUE_PARA"]:
         if not match("con"):
             return False
         if not match("paso"):
@@ -977,10 +1049,15 @@ def PARA():
             return False
         if not BLOQUE_PARA():
             return False
-    elif "PARA->epsilon" in predictions:
+    elif token.type in predictions["PARA1->hacer-BLOQUE_PARA"]:
+        if not match("hacer"):
+            return False
+        if not BLOQUE_PARA():
+            return False
+    elif "PARA1->epsilon" in predictions:
         return True
     else:
-        print syntax_error("PARA", token, False)
+        print syntax_error("PARA1", token, False)
         return False
     return True
 
@@ -1154,10 +1231,12 @@ def BLOQUE_CASO_LISTA():
 
 def OTRO():
     global token
-    if token.type in predictions["OTRO->borrar-pantalla"]:
+    if token.type in predictions["OTRO->borrar-pantalla-token_pyc"]:
         if not match("borrar"):
             return False
         if not match("pantalla"):
+            return False
+        if not match("token_pyc"):
             return False
     elif token.type in predictions["OTRO->ESCRIBIR"]:
         if not ESCRIBIR():
@@ -1168,10 +1247,12 @@ def OTRO():
     elif token.type in predictions["OTRO->LEER"]:
         if not LEER():
             return False
-    elif token.type in predictions["OTRO->limpiar-pantalla"]:
+    elif token.type in predictions["OTRO->limpiar-pantalla-token_pyc"]:
         if not match("limpiar"):
             return False
         if not match("pantalla"):
+            return False
+        if not match("token_pyc"):
             return False
     elif "OTRO->epsilon" in predictions:
         return True
@@ -1187,13 +1268,6 @@ def LISTA_EXPR():
             return False
         if not LISTA_EXPR1():
             return False
-    elif token.type in predictions["LISTA_EXPR->OPERADOR-TERMINO-LISTA_EXPR"]:
-        if not OPERADOR():
-            return False
-        if not TERMINO():
-            return False
-        if not LISTA_EXPR():
-            return False
     elif "LISTA_EXPR->epsilon" in predictions:
         return True
     else:
@@ -1203,13 +1277,12 @@ def LISTA_EXPR():
 
 def LISTA_EXPR1():
     global token
-    if token.type in predictions["LISTA_EXPR1->token_coma-LISTA_EXPR1"]:
+    if token.type in predictions["LISTA_EXPR1->token_coma-EXPRESION-LISTA_EXPR1"]:
         if not match("token_coma"):
             return False
-        if not LISTA_EXPR1():
-            return False
-    elif token.type in predictions["LISTA_EXPR1->EXPRESION"]:
         if not EXPRESION():
+            return False
+        if not LISTA_EXPR1():
             return False
     elif "LISTA_EXPR1->epsilon" in predictions:
         return True
@@ -1218,33 +1291,97 @@ def LISTA_EXPR1():
         return False
     return True
 
-def LISTA_ID():
+def LISTA_DEFINIR_ID():
     global token
-    if token.type in predictions["LISTA_ID->id-LISTA_ID1"]:
+    if token.type in predictions["LISTA_DEFINIR_ID->id-LISTA_DEFINIR_ID1"]:
         if not match("id"):
             return False
-        if not LISTA_ID1():
+        if not LISTA_DEFINIR_ID1():
             return False
-    elif "LISTA_ID->epsilon" in predictions:
+    elif "LISTA_DEFINIR_ID->epsilon" in predictions:
         return True
     else:
-        print syntax_error("LISTA_ID", token, False)
+        print syntax_error("LISTA_DEFINIR_ID", token, False)
         return False
     return True
 
-def LISTA_ID1():
+def LISTA_DEFINIR_ID1():
     global token
-    if token.type in predictions["LISTA_ID1->token_coma-id-LISTA_ID1"]:
+    if token.type in predictions["LISTA_DEFINIR_ID1->token_coma-id-LISTA_DEFINIR_ID1"]:
         if not match("token_coma"):
             return False
         if not match("id"):
             return False
-        if not LISTA_ID1():
+        if not LISTA_DEFINIR_ID1():
             return False
-    elif "LISTA_ID1->epsilon" in predictions:
+    elif "LISTA_DEFINIR_ID1->epsilon" in predictions:
         return True
     else:
-        print syntax_error("LISTA_ID1", token, False)
+        print syntax_error("LISTA_DEFINIR_ID1", token, False)
+        return False
+    return True
+
+def LISTA_LEER_ID():
+    global token
+    if token.type in predictions["LISTA_LEER_ID->id-LISTA_LEER_ID1"]:
+        if not match("id"):
+            return False
+        if not LISTA_LEER_ID1():
+            return False
+    elif "LISTA_LEER_ID->epsilon" in predictions:
+        return True
+    else:
+        print syntax_error("LISTA_LEER_ID", token, False)
+        return False
+    return True
+
+def LISTA_LEER_ID1():
+    global token
+    if token.type in predictions["LISTA_LEER_ID1->LISTA_LEER_ID2"]:
+        if not LISTA_LEER_ID2():
+            return False
+    elif token.type in predictions["LISTA_LEER_ID1->LLAMADA_DIM-LISTA_LEER_ID2"]:
+        if not LLAMADA_DIM():
+            return False
+        if not LISTA_LEER_ID2():
+            return False
+    elif "LISTA_LEER_ID1->epsilon" in predictions:
+        return True
+    else:
+        print syntax_error("LISTA_LEER_ID1", token, False)
+        return False
+    return True
+
+def LISTA_LEER_ID2():
+    global token
+    if token.type in predictions["LISTA_LEER_ID2->LISTA_LEER_ID3"]:
+        if not LISTA_LEER_ID3():
+            return False
+    elif "LISTA_LEER_ID2->epsilon" in predictions:
+        return True
+    else:
+        print syntax_error("LISTA_LEER_ID2", token, False)
+        return False
+    return True
+
+def LISTA_LEER_ID3():
+    global token
+    if token.type in predictions["LISTA_LEER_ID3->id-LISTA_LEER_ID2"]:
+        if not match("id"):
+            return False
+        if not LISTA_LEER_ID2():
+            return False
+    elif token.type in predictions["LISTA_LEER_ID3->id-LLAMADA_DIM-LISTA_LEER_ID2"]:
+        if not match("id"):
+            return False
+        if not LLAMADA_DIM():
+            return False
+        if not LISTA_LEER_ID2():
+            return False
+    elif "LISTA_LEER_ID3->epsilon" in predictions:
+        return True
+    else:
+        print syntax_error("LISTA_LEER_ID3", token, False)
         return False
     return True
 
@@ -1316,10 +1453,10 @@ def MEDIDA_TIEMPO():
 
 def LEER():
     global token
-    if token.type in predictions["LEER->leer-LISTA_ID-token_pyc"]:
+    if token.type in predictions["LEER->leer-LISTA_LEER_ID-token_pyc"]:
         if not match("leer"):
             return False
-        if not LISTA_ID():
+        if not LISTA_LEER_ID():
             return False
         if not match("token_pyc"):
             return False
@@ -1332,15 +1469,31 @@ def LEER():
 
 def EXPRESION():
     global token
-    if token.type in predictions["EXPRESION->TERMINO-LISTA_EXPR"]:
+    if token.type in predictions["EXPRESION->TERMINO-EXPRESION1"]:
         if not TERMINO():
             return False
-        if not LISTA_EXPR():
+        if not EXPRESION1():
             return False
     elif "EXPRESION->epsilon" in predictions:
         return True
     else:
         print syntax_error("EXPRESION", token, False)
+        return False
+    return True
+
+def EXPRESION1():
+    global token
+    if token.type in predictions["EXPRESION1->OPERADOR-TERMINO-EXPRESION1"]:
+        if not OPERADOR():
+            return False
+        if not TERMINO():
+            return False
+        if not EXPRESION1():
+            return False
+    elif "EXPRESION1->epsilon" in predictions:
+        return True
+    else:
+        print syntax_error("EXPRESION1", token, False)
         return False
     return True
 
@@ -1420,10 +1573,10 @@ def FACTOR():
 
 def LLAMADA_ID_PROC():
     global token
-    if token.type in predictions["LLAMADA_ID_PROC->id-LLAMADA_ID_PROC1"]:
+    if token.type in predictions["LLAMADA_ID_PROC->id-LLAMADA_ID_VOID"]:
         if not match("id"):
             return False
-        if not LLAMADA_ID_PROC1():
+        if not LLAMADA_ID_VOID():
             return False
     elif "LLAMADA_ID_PROC->epsilon" in predictions:
         return True
@@ -1432,18 +1585,18 @@ def LLAMADA_ID_PROC():
         return False
     return True
 
-def LLAMADA_ID_PROC1():
+def LLAMADA_ID_VOID():
     global token
-    if token.type in predictions["LLAMADA_ID_PROC1->PAR_PROC"]:
+    if token.type in predictions["LLAMADA_ID_VOID->PAR_PROC"]:
         if not PAR_PROC():
             return False
-    elif token.type in predictions["LLAMADA_ID_PROC1->LISTA_DIM"]:
-        if not LISTA_DIM():
+    elif token.type in predictions["LLAMADA_ID_VOID->LLAMADA_DIM"]:
+        if not LLAMADA_DIM():
             return False
-    elif "LLAMADA_ID_PROC1->epsilon" in predictions:
+    elif "LLAMADA_ID_VOID->epsilon" in predictions:
         return True
     else:
-        print syntax_error("LLAMADA_ID_PROC1", token, False)
+        print syntax_error("LLAMADA_ID_VOID", token, False)
         return False
     return True
 
@@ -1463,39 +1616,19 @@ def PAR_PROC():
         return False
     return True
 
-def LISTA_DIM():
+def LLAMADA_DIM():
     global token
-    if token.type in predictions["LISTA_DIM->token_cor_izq-EXPRESION-token_cor_der-LISTA_DIM1"]:
+    if token.type in predictions["LLAMADA_DIM->token_cor_izq-LISTA_EXPR-token_cor_der"]:
         if not match("token_cor_izq"):
             return False
-        if not EXPRESION():
+        if not LISTA_EXPR():
             return False
         if not match("token_cor_der"):
             return False
-        if not LISTA_DIM1():
-            return False
-    elif "LISTA_DIM->epsilon" in predictions:
+    elif "LLAMADA_DIM->epsilon" in predictions:
         return True
     else:
-        print syntax_error("LISTA_DIM", token, False)
-        return False
-    return True
-
-def LISTA_DIM1():
-    global token
-    if token.type in predictions["LISTA_DIM1->token_cor_izq-EXPRESION-token_cor_der-LISTA_DIM1"]:
-        if not match("token_cor_izq"):
-            return False
-        if not EXPRESION():
-            return False
-        if not match("token_cor_der"):
-            return False
-        if not LISTA_DIM1():
-            return False
-    elif "LISTA_DIM1->epsilon" in predictions:
-        return True
-    else:
-        print syntax_error("LISTA_DIM1", token, False)
+        print syntax_error("LLAMADA_DIM", token, False)
         return False
     return True
 
@@ -1621,11 +1754,11 @@ def run_syntax_analyzer(input = None, output = None):
     generate_tokens(input)
     process_missing_error = True
     for t in tokens:
-        if t.type == "proceso":
+        if t.type == "proceso" or t.type == "algoritmo":
             process_missing_error = False
             break
     if process_missing_error:
-        print "Error sintactico: falta proceso"
+        print "Error sintactico: falta proceso."
         return
     token = get_next_token()
     if PSEINT():
@@ -1651,6 +1784,7 @@ grammar = "" \
         "FIN_PROC->finsubproceso:finsubproceso;" \
         "FIRMA->token_asig-id-ARG_PROC:token_asig;" \
         "FIRMA->ARG_PROC:token_par_izq;" \
+        "FIRMA->epsilon:definir,dimension,para,repetir,id,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,finfuncion,finsubproceso;" \
         "ARG_PROC->token_par_izq-LISTA_ARG_PROC-token_par_der:token_par_izq;" \
         "ARG_PROC->epsilon:definir,dimension,para,repetir,id,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,finfuncion,finsubproceso;" \
         "LISTA_ARG_PROC->id-LISTA_ARG_PROC1:id;" \
@@ -1658,7 +1792,7 @@ grammar = "" \
         "LISTA_ARG_PROC1->token_coma-id-LISTA_ARG_PROC1:token_coma;" \
         "LISTA_ARG_PROC1->epsilon:token_par_der;" \
         "BLOQUE->DECLARACION-BLOQUE:definir;" \
-        "BLOQUE->ASIGNACION-BLOQUE:id;" \
+        "BLOQUE->ASIGNACION_LLAMADA-BLOQUE:id;" \
         "BLOQUE->DIMENSION-BLOQUE:dimension;" \
         "BLOQUE->SI-BLOQUE:si;" \
         "BLOQUE->PARA-BLOQUE:para;" \
@@ -1667,17 +1801,24 @@ grammar = "" \
         "BLOQUE->SEGUN-BLOQUE:segun;" \
         "BLOQUE->OTRO-BLOQUE:borrar,limpiar,escribir,leer,esperar;" \
         "BLOQUE->epsilon:caso,finsegun,de,hasta,finmientras,finpara,finsi,sino,finfuncion,finsubproceso,finproceso,finalgoritmo;" \
-        "DECLARACION->definir-LISTA_ID-como-TIPO_DATO-token_pyc:definir;" \
+        "ASIGNACION_LLAMADA->id-ASIGNACION_LLAMADA1:id;" \
+        "ASIGNACION_LLAMADA1->ASIGNACION1:token_cor_izq,token_asig;" \
+        "ASIGNACION_LLAMADA1->LLAMADA_ID_VOID-token_pyc:token_par_izq,token_cor_izq,token_pyc;" \
+        "DECLARACION->definir-LISTA_DEFINIR_ID-como-TIPO_DATO-token_pyc:definir;" \
         "ASIGNACION->id-ASIGNACION1:id;" \
         "ASIGNACION1->token_cor_izq-LISTA_EXPR-token_cor_der-token_asig-EXPRESION-token_pyc:token_cor_izq;" \
         "ASIGNACION1->token_asig-EXPRESION-token_pyc:token_asig;" \
-        "DIMENSION->dimension-id-token_cor_izq-LISTA_EXPR-token_cor_der-token_pyc:dimension;" \
+        "DIMENSION->dimension-id-LLAMADA_DIM-DIMENSION1-token_pyc:dimension;" \
+        "DIMENSION1->token_coma-id-LLAMADA_DIM-DIMENSION1:token_coma;" \
+        "DIMENSION1->epsilon:token_pyc;" \
         "SI->si-EXPRESION-entonces-BLOQUE_SI:si;" \
         "BLOQUE_SI->BLOQUE-SI1:definir,dimension,para,repetir,id,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,sino,finsi;" \
         "SI1->sino-BLOQUE_SI1:sino;" \
         "SI1->finsi:finsi;" \
         "BLOQUE_SI1->BLOQUE-finsi:definir,dimension,para,repetir,id,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,finsi;" \
-        "PARA->para-id-token_asig-EXPRESION-hasta-EXPRESION-con-paso-EXPRESION-hacer-BLOQUE_PARA:para;" \
+        "PARA->para-id-token_asig-EXPRESION-hasta-EXPRESION-PARA1:para;" \
+        "PARA1->con-paso-EXPRESION-hacer-BLOQUE_PARA:con;" \
+        "PARA1->hacer-BLOQUE_PARA:hacer;" \
         "BLOQUE_PARA->BLOQUE-finpara:definir,dimension,para,repetir,id,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,finpara;" \
         "MIENTRAS->mientras-EXPRESION-hacer-BLOQUE_MIENTRAS:mientras;" \
         "BLOQUE_MIENTRAS->BLOQUE-finmientras:definir,dimension,para,repetir,id,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,finmientras;" \
@@ -1690,31 +1831,39 @@ grammar = "" \
         "CASO_LISTA->caso-EXPRESION-token_dosp-BLOQUE_CASO_LISTA:caso;" \
         "CASO_LISTA->SEGUN1:finsegun,de;" \
         "BLOQUE_CASO_LISTA->BLOQUE-CASO_LISTA:definir,dimension,para,repetir,id,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,caso,finsegun,de;" \
-        "OTRO->borrar-pantalla:borrar;" \
+        "OTRO->borrar-pantalla-token_pyc:borrar;" \
         "OTRO->ESCRIBIR:escribir;" \
         "OTRO->ESPERAR:esperar;" \
         "OTRO->LEER:leer;" \
-        "OTRO->limpiar-pantalla:limpiar;" \
+        "OTRO->limpiar-pantalla-token_pyc:limpiar;" \
         "LISTA_EXPR->EXPRESION-LISTA_EXPR1:token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,token_menos,id;" \
-        "LISTA_EXPR->OPERADOR-TERMINO-LISTA_EXPR:token_mas,token_menos,token_div,token_mul,token_mod,token_pot,token_igual,token_dif,token_menor,token_mayor,token_menor_igual,token_mayor_igual,token_y,token_o;" \
-        "LISTA_EXPR->epsilon:token_pyc,token_cor_der,token_coma,token_par_der,segundos,milisegundos,token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,token_menos,id,token_dosp,hacer,hasta,con,entonces,token_mas,token_div,token_mul,token_mod,token_pot,token_igual,token_dif,token_menor,token_mayor,token_menor_igual,token_mayor_igual,token_y,token_o,definir,dimension,para,repetir,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,caso,finsegun,de,finmientras,finpara,finsi,sino,finfuncion,finsubproceso,finproceso,finalgoritmo;" \
-        "LISTA_EXPR1->token_coma-LISTA_EXPR1:token_coma;" \
-        "LISTA_EXPR1->EXPRESION:token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,token_menos,id;" \
-        "LISTA_EXPR1->epsilon:token_pyc,token_cor_der,token_coma,token_par_der,segundos,milisegundos,token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,token_menos,id,token_dosp,hacer,hasta,con,entonces,token_mas,token_div,token_mul,token_mod,token_pot,token_igual,token_dif,token_menor,token_mayor,token_menor_igual,token_mayor_igual,token_y,token_o,definir,dimension,para,repetir,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,caso,finsegun,de,finmientras,finpara,finsi,sino,finfuncion,finsubproceso,finproceso,finalgoritmo;" \
-        "LISTA_ID->id-LISTA_ID1:id;" \
-        "LISTA_ID1->token_coma-id-LISTA_ID1:token_coma;" \
-        "LISTA_ID1->epsilon:token_pyc,como;" \
+        "LISTA_EXPR1->token_coma-EXPRESION-LISTA_EXPR1:token_coma;" \
+        "LISTA_EXPR1->epsilon:token_cor_der,token_pyc;" \
+        "LISTA_DEFINIR_ID->id-LISTA_DEFINIR_ID1:id;" \
+        "LISTA_DEFINIR_ID1->token_coma-id-LISTA_DEFINIR_ID1:token_coma;" \
+        "LISTA_DEFINIR_ID1->epsilon:como;" \
+        "LISTA_LEER_ID->id-LISTA_LEER_ID1:id;" \
+        "LISTA_LEER_ID1->LISTA_LEER_ID2:id;" \
+        "LISTA_LEER_ID1->epsilon:token_pyc;" \
+        "LISTA_LEER_ID1->LLAMADA_DIM-LISTA_LEER_ID2:token_cor_izq;" \
+        "LISTA_LEER_ID2->LISTA_LEER_ID3:id;" \
+        "LISTA_LEER_ID2->epsilon:token_pyc;" \
+        "LISTA_LEER_ID3->id-LISTA_LEER_ID2:id;" \
+        "LISTA_LEER_ID3->id-LLAMADA_DIM-LISTA_LEER_ID2:id;" \
+        "LISTA_LEER_ID3->epsilon:token_pyc;" \
         "ESCRIBIR->escribir-LISTA_EXPR-token_pyc:escribir;" \
         "ESPERAR->esperar-ESPERAR1:esperar;" \
         "ESPERAR1->tecla-token_pyc:tecla;" \
         "ESPERAR1->EXPRESION-MEDIDA_TIEMPO-token_pyc:token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,token_menos,id;" \
         "MEDIDA_TIEMPO->segundos:segundos;" \
         "MEDIDA_TIEMPO->milisegundos:milisegundos;" \
-        "LEER->leer-LISTA_ID-token_pyc:leer;" \
-        "EXPRESION->TERMINO-LISTA_EXPR:token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,token_menos,id;" \
+        "LEER->leer-LISTA_LEER_ID-token_pyc:leer;" \
+        "EXPRESION->TERMINO-EXPRESION1:token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,token_menos,id;" \
+        "EXPRESION1->OPERADOR-TERMINO-EXPRESION1:token_mas,token_menos,token_div,token_mul,token_mod,token_pot,token_igual,token_dif,token_menor,token_mayor,token_menor_igual,token_mayor_igual,token_y,token_o;" \
+        "EXPRESION1->epsilon:token_coma,token_par_der,segundos,milisegundos,token_dosp,hacer,hasta,con,entonces,token_pyc,token_mas,token_menos,token_div,token_mul,token_mod,token_pot,token_igual,token_dif,token_menor,token_mayor,token_menor_igual,token_mayor_igual,token_y,token_o,token_cor_der,definir,dimension,para,repetir,id,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,caso,finsegun,de,finmientras,finpara,finsi,sino,finfuncion,finsubproceso,finproceso,finalgoritmo;" \
         "TERMINO->FACTOR-LISTA_FACTOR:token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,token_menos,id;" \
         "LISTA_FACTOR->OPERADOR-FACTOR-LISTA_FACTOR:token_mas,token_menos,token_div,token_mul,token_mod,token_pot,token_igual,token_dif,token_menor,token_mayor,token_menor_igual,token_mayor_igual,token_y,token_o;" \
-        "LISTA_FACTOR->epsilon:token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,token_menos,id,token_mas,token_div,token_mul,token_mod,token_pot,token_igual,token_dif,token_menor,token_mayor,token_menor_igual,token_mayor_igual,token_y,token_o,token_coma,token_cor_der,token_par_der,segundos,milisegundos,token_dosp,hacer,hasta,con,entonces,token_pyc,definir,dimension,para,repetir,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,caso,finsegun,de,finmientras,finpara,finsi,sino,finfuncion,finsubproceso,finproceso,finalgoritmo;" \
+        "LISTA_FACTOR->epsilon:token_mas,token_menos,token_div,token_mul,token_mod,token_pot,token_igual,token_dif,token_menor,token_mayor,token_menor_igual,token_mayor_igual,token_y,token_o,token_coma,token_par_der,segundos,milisegundos,token_dosp,hacer,hasta,con,entonces,token_pyc,token_cor_der,definir,dimension,para,repetir,id,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,caso,finsegun,de,finmientras,finpara,finsi,sino,finfuncion,finsubproceso,finproceso,finalgoritmo;" \
         "FACTOR->token_par_izq-EXPRESION-token_par_der:token_par_izq;" \
         "FACTOR->LLAMADA_ID_PROC:id;" \
         "FACTOR->token_real:token_real;" \
@@ -1724,14 +1873,12 @@ grammar = "" \
         "FACTOR->falso:falso;" \
         "FACTOR->token_neg-EXPRESION:token_neg;" \
         "FACTOR->token_menos-EXPRESION:token_menos;" \
-        "LLAMADA_ID_PROC->id-LLAMADA_ID_PROC1:id;" \
-        "LLAMADA_ID_PROC1->PAR_PROC:token_par_izq;" \
-        "LLAMADA_ID_PROC1->LISTA_DIM:token_cor_izq;" \
-        "LLAMADA_ID_PROC1->epsilon:token_mas,token_menos,token_div,token_mul,token_mod,token_pot,token_igual,token_dif,token_menor,token_mayor,token_menor_igual,token_mayor_igual,token_y,token_o,token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,id,token_coma,token_cor_der,token_par_der,segundos,milisegundos,token_dosp,hacer,hasta,con,entonces,token_pyc,definir,dimension,para,repetir,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,caso,finsegun,de,finmientras,finpara,finsi,sino,finfuncion,finsubproceso,finproceso,finalgoritmo;" \
+        "LLAMADA_ID_PROC->id-LLAMADA_ID_VOID:id;" \
+        "LLAMADA_ID_VOID->PAR_PROC:token_par_izq;" \
+        "LLAMADA_ID_VOID->LLAMADA_DIM:token_cor_izq;" \
+        "LLAMADA_ID_VOID->epsilon:token_pyc,token_mas,token_menos,token_div,token_mul,token_mod,token_pot,token_igual,token_dif,token_menor,token_mayor,token_menor_igual,token_mayor_igual,token_y,token_o,token_coma,token_par_der,segundos,milisegundos,token_dosp,hacer,hasta,con,entonces,token_cor_der,definir,dimension,para,repetir,id,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,caso,finsegun,de,finmientras,finpara,finsi,sino,finfuncion,finsubproceso,finproceso,finalgoritmo;" \
         "PAR_PROC->token_par_izq-LISTA_PAR_PROC-token_par_der:token_par_izq;" \
-        "LISTA_DIM->token_cor_izq-EXPRESION-token_cor_der-LISTA_DIM1:token_cor_izq;" \
-        "LISTA_DIM1->token_cor_izq-EXPRESION-token_cor_der-LISTA_DIM1:token_cor_izq;" \
-        "LISTA_DIM1->epsilon:token_mas,token_menos,token_div,token_mul,token_mod,token_pot,token_igual,token_dif,token_menor,token_mayor,token_menor_igual,token_mayor_igual,token_y,token_o,token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,id,token_coma,token_cor_der,token_par_der,segundos,milisegundos,token_dosp,hacer,hasta,con,entonces,token_pyc,definir,dimension,para,repetir,mientras,si,borrar,limpiar,escribir,leer,esperar,segun,caso,finsegun,de,finmientras,finpara,finsi,sino,finfuncion,finsubproceso,finproceso,finalgoritmo;" \
+        "LLAMADA_DIM->token_cor_izq-LISTA_EXPR-token_cor_der:token_cor_izq;" \
         "LISTA_PAR_PROC->EXPRESION-LISTA_PAR_PROC1:token_par_izq,token_real,token_entero,token_cadena,verdadero,falso,token_neg,token_menos,id;" \
         "LISTA_PAR_PROC->epsilon:token_par_der;" \
         "LISTA_PAR_PROC1->token_coma-EXPRESION-LISTA_PAR_PROC1:token_coma;" \
@@ -1763,7 +1910,5 @@ predictions = {}
 generate_prediction_sets(grammar)
 
 token = Token()
-run_syntax_analyzer("ejemplos2/3.in")
+run_syntax_analyzer()
 
-#Replace FIN_PROCESO for BLOQUE_PROCESO
-#Replace FIN_PROC for BLOQUE_PROC

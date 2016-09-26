@@ -1,0 +1,14 @@
+proceso mi_proceso
+   definir a como Real;
+   dimension a[100];
+   
+   a[0] <- 1;
+   
+   para i<-1 hasta 99 hacer
+       a[i] <- i*a[i-1];
+       Escribir a[i];
+   finpara
+   
+   Escribir "Fin del programa";
+   
+finproceso

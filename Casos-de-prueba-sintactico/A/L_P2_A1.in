@@ -1,0 +1,7 @@
+proceso mi_proceso
+   definir a,b,c,d,e como entero;
+   a <- b;
+   b <- a;
+   a <- c;
+   Escribir a,b,c;
+finproceso

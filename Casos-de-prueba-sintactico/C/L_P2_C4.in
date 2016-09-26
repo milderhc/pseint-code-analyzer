@@ -1,0 +1,28 @@
+subproceso accesibles <- dfs(nodo,visitado)
+    definir accesibles como entero;
+    accesibles <- 1;
+    
+    visitado[nodo] <- verdadero;
+    
+    para i<-0 hasta 100 hacer
+        si mat[nodo,i] & ~visitado[i] entonces
+            accesibles <- accesibles + 1;
+        finsi
+    finpara
+finsubproceso
+
+
+proceso mi_proceso
+    definir a,array como entero;
+    dimension array[100];
+    a <- dfs(0,array);
+    segun a hacer
+        caso 99:
+             Escribir "Wow tiene muchos decendientes";
+        caso 100:
+             Escribir "El nodo padre de todos los padres";
+        de otro modo:
+             Escribir "No es padre de todos los padres";
+    finsegun
+    
+finalgoritmo

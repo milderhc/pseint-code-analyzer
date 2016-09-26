@@ -68,10 +68,13 @@ def generate_grammar_string(grammar):
 def generate_syntax_error():
     write_line("def syntax_error(expec, token, error_syntax_in_match):", 0)
     write_line("error = \"\"", 1)
-    write_line("error += \"<\" + str(token.row) + \",\" + str(token.col) + \"> Error sintactico: "\
+    write_line("error += \"<\" + str(token.row) + \":\" + str(token.col) + \"> Error sintactico: "\
                "se encontro: \\\"\" + token.lexema + \"\\\"; se esperaba: \"", 1)
     write_line("if error_syntax_in_match:", 1)
-    write_line("error += \"\\\"\" + expec + \"\\\". \"", 2)
+    write_line("for e in alias:", 2)
+    write_line("if e[0] in expec:", 3)
+    write_line("error += \"\\\"\" + e[1] + \"\\\". \"", 4)
+    write_line("break", 4)
     write_line("else:", 1)
     write_line("for e in alias:", 2)
     write_line("if e[0] in expected[expec]:", 3)
@@ -106,11 +109,11 @@ def generate_run_syntax_analyzer(grammar):
     write_line("generate_tokens(input)", 1)
     write_line("process_missing_error = True", 1)
     write_line("for t in tokens:", 1)
-    write_line("if t.type == \"proceso\":", 2)
+    write_line("if t.type == \"proceso\" or t.type == \"algoritmo\":", 2)
     write_line("process_missing_error = False", 3)
     write_line("break", 3)
     write_line("if process_missing_error:", 1)
-    write_line("print \"Error sintactico: falta proceso\"", 2)
+    write_line("print \"Error sintactico: falta proceso.\"", 2)
     write_line("return", 2)
     write_line("token = get_next_token()", 1)
     write_line("if " + grammar[0][0][0] + "():", 1)
@@ -190,13 +193,11 @@ def generate_syntax_analyzer_code (grammar, lexer = "lexer.py"):
     write_line("", 0)
 
     write_line("token = Token()", 0)
-    write_line("run_syntax_analyzer(\"ejemplos2/1.in\")", 0)
+    write_line("run_syntax_analyzer(\"Casos-de-prueba-sintactico/E/L_P2_E1.in\")", 0)
 
     write_line("", 0)
-    write_line("#Replace FIN_PROCESO for BLOQUE_PROCESO", 0)
-    write_line("#Replace FIN_PROC for BLOQUE_PROC", 0)
 
 
 stdout = open("syntax_analyzer.py", "w")
-generate_syntax_analyzer_code(read_grammar("grammars/grammar1.txt"))
+generate_syntax_analyzer_code(read_grammar("grammars/pseint_grammar.txt"))
 stdout.close()

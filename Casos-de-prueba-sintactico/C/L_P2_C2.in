@@ -1,0 +1,28 @@
+subproceso x <- mi_subproceso(a)
+    x <- a*3;
+finfuncion
+
+
+proceso mi_proceso
+    definir a,b,c como entero;
+    Leer a;
+
+    segun a hacer
+        caso b:
+             Escribir "b";
+             b <- 2;
+        caso b*c:
+             Escribir "b*c";
+             c <- 12;
+        caso c:
+             Escribir c;
+             c <- mi_subproceso(2);
+             b <- c*mi_subproceso(3);
+             mi_subproceso(b*c);
+        caso mi_subproceso(2):
+             Escribir "6";
+        de otro modo:
+             Escribir "nada";
+    finsegun
+
+finproceso

@@ -1,0 +1,18 @@
+proceso mi_proceso
+   
+   definir matriz como logico;
+   dimension matriz[20,20,20];
+   
+   para i<-0 hasta 19 hacer
+       para j<-0 hasta 19 hacer
+           para k<-0 hasta 19 hacer
+               si aleatorio() < 0.5 entonces
+                   matriz[i,j,k] <- verdadero;
+               sino
+                   matriz[i,j,k] <- falso;
+               finsi
+           finpara
+       finpara
+   finpara
+   
+finproceso

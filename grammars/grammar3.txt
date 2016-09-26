@@ -1,0 +1,132 @@
+1|PSEINT : FUNCION_SUBPROC PROCESO FUNCION_SUBPROC|funcion, subproceso, proceso, algoritmo
+2|FUNCION_SUBPROC : PROC FUNCION_SUBPROC|funcion, subproceso
+3|FUNCION_SUBPROC : epsilon|proceso, algoritmo, EOF
+4|PROCESO : INICIO_PROCESO id BLOQUE_PROCESO|proceso, algoritmo
+5|INICIO_PROCESO : proceso|proceso
+6|INICIO_PROCESO : algoritmo|algoritmo
+7|BLOQUE_PROCESO : BLOQUE FIN_PROCESO|definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, finproceso, finalgoritmo
+8|FIN_PROCESO : finproceso|finproceso
+9|FIN_PROCESO : finalgoritmo|finalgoritmo
+10|PROC : INICIO_PROC id FIRMA BLOQUE_PROC|funcion, subproceso
+11|INICIO_PROC : funcion|funcion
+12|INICIO_PROC : subproceso|subproceso
+13|BLOQUE_PROC : BLOQUE FIN_PROC|definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, finfuncion, finsubproceso
+14|FIN_PROC : finfuncion|finfuncion
+15|FIN_PROC : finsubproceso|finsubproceso
+16|FIRMA : token_asig id ARG_PROC|token_asig
+17|FIRMA : ARG_PROC|token_par_izq
+18|FIRMA : epsilon|definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, finfuncion, finsubproceso
+19|ARG_PROC : token_par_izq LISTA_ARG_PROC token_par_der|token_par_izq
+20|ARG_PROC : epsilon|definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, finfuncion, finsubproceso
+21|LISTA_ARG_PROC : id LISTA_ARG_PROC1|id
+22|LISTA_ARG_PROC : epsilon|token_par_der
+23|LISTA_ARG_PROC1 : token_coma id LISTA_ARG_PROC1|token_coma
+24|LISTA_ARG_PROC1 : epsilon|token_par_der
+25|BLOQUE : DECLARACION BLOQUE|definir
+26|BLOQUE : ASIGNACION_LLAMADA BLOQUE|id
+27|BLOQUE : DIMENSION BLOQUE|dimension
+28|BLOQUE : SI BLOQUE|si
+29|BLOQUE : PARA BLOQUE|para
+30|BLOQUE : MIENTRAS BLOQUE|mientras
+31|BLOQUE : REPETIR BLOQUE|repetir
+32|BLOQUE : SEGUN BLOQUE|segun
+33|BLOQUE : OTRO BLOQUE|borrar, limpiar, escribir, leer, esperar
+34|BLOQUE : epsilon|caso, finsegun, de, hasta, finmientras, finpara, finsi, sino, finfuncion, finsubproceso, finproceso, finalgoritmo
+35|ASIGNACION_LLAMADA : id ASIGNACION_LLAMADA1|id
+36|ASIGNACION_LLAMADA1 : ASIGNACION1|token_cor_izq, token_asig
+37|ASIGNACION_LLAMADA1 : LLAMADA_ID_VOID token_pyc|token_par_izq, token_cor_izq, token_pyc
+38|DECLARACION : definir LISTA_ID como TIPO_DATO token_pyc|definir
+39|ASIGNACION : id ASIGNACION1|id
+40|ASIGNACION1 : token_cor_izq LISTA_EXPR token_cor_der token_asig EXPRESION token_pyc|token_cor_izq
+41|ASIGNACION1 : token_asig EXPRESION token_pyc|token_asig
+42|DIMENSION : dimension id token_cor_izq LISTA_EXPR token_cor_der token_pyc|dimension
+43|SI : si EXPRESION entonces BLOQUE_SI|si
+44|BLOQUE_SI : BLOQUE SI1|definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, sino, finsi
+45|SI1 : sino BLOQUE_SI1|sino
+46|SI1 : finsi|finsi
+47|BLOQUE_SI1 : BLOQUE finsi|definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, finsi
+48|PARA : para id token_asig EXPRESION hasta EXPRESION PARA1|para
+49|PARA1 : con paso EXPRESION hacer BLOQUE_PARA|con
+50|PARA1 : hacer BLOQUE_PARA|hacer
+51|BLOQUE_PARA : BLOQUE finpara|definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, finpara
+52|MIENTRAS : mientras EXPRESION hacer BLOQUE_MIENTRAS|mientras
+53|BLOQUE_MIENTRAS : BLOQUE finmientras|definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, finmientras
+54|REPETIR : repetir BLOQUE_REPETIR|repetir
+55|BLOQUE_REPETIR : BLOQUE hasta que EXPRESION|definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, hasta
+56|SEGUN : segun EXPRESION hacer CASO_LISTA|segun
+57|SEGUN1 : finsegun|finsegun
+58|SEGUN1 : de otro modo token_dosp BLOQUE_SEGUN1|de
+59|BLOQUE_SEGUN1 : BLOQUE finsegun|definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, finsegun
+60|CASO_LISTA : caso EXPRESION token_dosp BLOQUE_CASO_LISTA|caso
+61|CASO_LISTA : SEGUN1|finsegun, de
+62|BLOQUE_CASO_LISTA : BLOQUE CASO_LISTA|definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, caso, finsegun, de
+63|OTRO : borrar pantalla token_pyc|borrar
+64|OTRO : ESCRIBIR|escribir
+65|OTRO : ESPERAR|esperar
+66|OTRO : LEER|leer
+67|OTRO : limpiar pantalla token_pyc|limpiar
+68|LISTA_EXPR : EXPRESION LISTA_EXPR1|token_par_izq, token_real, token_entero, token_cadena, verdadero, falso, token_neg, token_menos, id
+69|LISTA_EXPR1 : token_coma EXPRESION LISTA_EXPR1|token_coma
+70|LISTA_EXPR1 : epsilon|token_cor_der, token_pyc
+71|LISTA_ID : id LISTA_ID1|id
+72|LISTA_ID1 : token_coma id LISTA_ID1|token_coma
+73|LISTA_ID1 : epsilon|como
+74|ESCRIBIR : escribir LISTA_EXPR token_pyc|escribir
+75|ESPERAR : esperar ESPERAR1|esperar
+76|ESPERAR1 : tecla token_pyc|tecla
+77|ESPERAR1 : EXPRESION MEDIDA_TIEMPO token_pyc|token_par_izq, token_real, token_entero, token_cadena, verdadero, falso, token_neg, token_menos, id
+78|MEDIDA_TIEMPO : segundos|segundos
+79|MEDIDA_TIEMPO : milisegundos|milisegundos
+80|LEER : leer LISTA_EXPR token_pyc|leer
+81|EXPRESION : TERMINO LISTA_EXPRESION|token_par_izq, token_real, token_entero, token_cadena, verdadero, falso, token_neg, token_menos, id
+82|LISTA_EXPRESION : OPERADOR TERMINO LISTA_EXPRESION|token_mas, token_menos, token_div, token_mul, token_mod, token_pot, token_igual, token_dif, token_menor, token_mayor, token_menor_igual, token_mayor_igual, token_y, token_o
+83|LISTA_EXPRESION : epsilon|token_coma, token_par_der, segundos, milisegundos, token_dosp, hacer, hasta, con, entonces, token_pyc, token_mas, token_menos, token_div, token_mul, token_mod, token_pot, token_igual, token_dif, token_menor, token_mayor, token_menor_igual, token_mayor_igual, token_y, token_o, token_cor_der, definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, caso, finsegun, de, finmientras, finpara, finsi, sino, finfuncion, finsubproceso, finproceso, finalgoritmo
+84|TERMINO : FACTOR LISTA_FACTOR|token_par_izq, token_real, token_entero, token_cadena, verdadero, falso, token_neg, token_menos, id
+85|LISTA_FACTOR : OPERADOR FACTOR LISTA_FACTOR|token_mas, token_menos, token_div, token_mul, token_mod, token_pot, token_igual, token_dif, token_menor, token_mayor, token_menor_igual, token_mayor_igual, token_y, token_o
+86|LISTA_FACTOR : epsilon|token_mas, token_menos, token_div, token_mul, token_mod, token_pot, token_igual, token_dif, token_menor, token_mayor, token_menor_igual, token_mayor_igual, token_y, token_o, token_coma, token_par_der, segundos, milisegundos, token_dosp, hacer, hasta, con, entonces, token_pyc, token_cor_der, definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, caso, finsegun, de, finmientras, finpara, finsi, sino, finfuncion, finsubproceso, finproceso, finalgoritmo
+87|FACTOR : token_par_izq EXPRESION token_par_der|token_par_izq
+88|FACTOR : LLAMADA_ID_PROC|id
+89|FACTOR : token_real|token_real
+90|FACTOR : token_entero|token_entero
+91|FACTOR : token_cadena|token_cadena
+92|FACTOR : verdadero|verdadero
+93|FACTOR : falso|falso
+94|FACTOR : token_neg EXPRESION|token_neg
+95|FACTOR : token_menos EXPRESION|token_menos
+96|LLAMADA_ID_PROC : id LLAMADA_ID_PROC1|id
+97|LLAMADA_ID_PROC1 : PAR_PROC|token_par_izq
+98|LLAMADA_ID_PROC1 : LISTA_DIM|token_cor_izq
+99|LLAMADA_ID_PROC1 : epsilon|token_mas, token_menos, token_div, token_mul, token_mod, token_pot, token_igual, token_dif, token_menor, token_mayor, token_menor_igual, token_mayor_igual, token_y, token_o, token_coma, token_par_der, segundos, milisegundos, token_dosp, hacer, hasta, con, entonces, token_pyc, token_cor_der, definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, caso, finsegun, de, finmientras, finpara, finsi, sino, finfuncion, finsubproceso, finproceso, finalgoritmo
+100|LLAMADA_ID_VOID : PAR_PROC|token_par_izq
+101|LLAMADA_ID_VOID : LISTA_DIM|token_cor_izq
+102|LLAMADA_ID_VOID : epsilon|token_pyc
+103|PAR_PROC : token_par_izq LISTA_PAR_PROC token_par_der|token_par_izq
+104|LISTA_DIM : token_cor_izq LISTA_EXPR token_cor_der LISTA_DIM1|token_cor_izq
+105|LISTA_DIM1 : token_cor_izq LISTA_EXPR token_cor_der LISTA_DIM1|token_cor_izq
+106|LISTA_DIM1 : epsilon|token_pyc, token_mas, token_menos, token_div, token_mul, token_mod, token_pot, token_igual, token_dif, token_menor, token_mayor, token_menor_igual, token_mayor_igual, token_y, token_o, token_coma, token_par_der, segundos, milisegundos, token_dosp, hacer, hasta, con, entonces, token_cor_der, definir, dimension, para, repetir, id, mientras, si, borrar, limpiar, escribir, leer, esperar, segun, caso, finsegun, de, finmientras, finpara, finsi, sino, finfuncion, finsubproceso, finproceso, finalgoritmo
+107|LISTA_PAR_PROC : EXPRESION LISTA_PAR_PROC1|token_par_izq, token_real, token_entero, token_cadena, verdadero, falso, token_neg, token_menos, id
+108|LISTA_PAR_PROC : epsilon|token_par_der
+109|LISTA_PAR_PROC1 : token_coma EXPRESION LISTA_PAR_PROC1|token_coma
+110|LISTA_PAR_PROC1 : epsilon|token_par_der
+111|TIPO_DATO : numero|numero
+112|TIPO_DATO : numerico|numerico
+113|TIPO_DATO : entero|entero
+114|TIPO_DATO : real|real
+115|TIPO_DATO : caracter|caracter
+116|TIPO_DATO : texto|texto
+117|TIPO_DATO : cadena|cadena
+118|TIPO_DATO : logico|logico
+119|OPERADOR : token_mas|token_mas
+120|OPERADOR : token_menos|token_menos
+121|OPERADOR : token_div|token_div
+122|OPERADOR : token_mul|token_mul
+123|OPERADOR : token_mod|token_mod
+124|OPERADOR : token_pot|token_pot
+125|OPERADOR : token_igual|token_igual
+126|OPERADOR : token_dif|token_dif
+127|OPERADOR : token_menor|token_menor
+128|OPERADOR : token_mayor|token_mayor
+129|OPERADOR : token_menor_igual|token_menor_igual
+130|OPERADOR : token_mayor_igual|token_mayor_igual
+131|OPERADOR : token_y|token_y
+132|OPERADOR : token_o|token_o

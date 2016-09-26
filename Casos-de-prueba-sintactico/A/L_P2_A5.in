@@ -1,0 +1,9 @@
+proceso mi_proceso
+    a <- b
+    
+    
+    ;
+    
+    a <- c
+    
+finproceso

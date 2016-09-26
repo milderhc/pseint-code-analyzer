@@ -1,0 +1,16 @@
+proceso mi_proceso
+    definir a,array como entero;
+    
+    si a < 10 entonces
+       si b > 1 entonces
+           Escribir "algo";
+       sino
+           si c<> 10 entonces
+               Escribir "c no es 10";
+       finsi
+       
+       
+       
+    finsi
+    
+finalgoritmo
