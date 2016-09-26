@@ -31,6 +31,7 @@ def read_grammar (grammar_file):
     return grammar
 
 def write_line(str, tabs):
+    global stdout
     for i in xrange(tabs):
         stdout.write("    ")
     stdout.write(str + "\n")
@@ -73,9 +74,14 @@ def generate_syntax_error():
     write_line("error += \"\\\"\" + expec + \"\\\".\"", 2)
     write_line("else:", 1)
     write_line("for e in expected[expec]:", 2)
-    write
-    write_line("error += \"\\\"\" + e + \"\\\",\"", 3)
-    write_line("return error", 1)
+    write_line("is_operator = False", 3)
+    write_line("for op in operators:", 3)
+    write_line("if operators[op] == e:", 4)
+    write_line("error += \"\\\"\" + op + \"\\\", \"", 5)
+    write_line("is_operator = True", 5)
+    write_line("if is_operator == False:", 3)
+    write_line("error += \"\\\"\" + e + \"\\\", \"", 4)
+    write_line("return error[:-2] + \".\"", 1)
     write_line("", 0)
 
 def generate_match():
@@ -85,9 +91,34 @@ def generate_match():
     write_line("token = get_next_token()", 2)
     write_line("else:", 1)
     write_line("print syntax_error(expected_token, token, True)", 2)
+    write_line("return False", 2)
+    write_line("return True", 1)
     write_line("", 0)
 
-def generate_syntax_analyzer_code (grammar):
+def copy_lexer(lexer):
+    global stdout
+    stdin = open(lexer, "r")
+    for line in stdin:
+        stdout.write(line)
+
+def generate_run_syntax_analyzer(grammar):
+    write_line("def run_syntax_analyzer(input = None, output = None):", 0)
+    write_line("global token", 1)
+    write_line("if output != None:", 1)
+    write_line("stdout = open(input,\"r\")", 2)
+    write_line("", 0)
+    write_line("generate_tokens(input)", 1)
+    write_line("token = get_next_token()", 1)
+    write_line("if " + grammar[0][0][0] + "():", 1)
+    write_line("print \"El analisis sintactico ha finalizado exitosamente.\"", 2)
+    write_line("if output != None:", 2)
+    write_line("stdout.write(\"El analisis sintactico ha finalizado exitosamente.\" + \"\\n\")", 3)
+    # write_line("if token != token_eof:", 0)
+    # write_line("print syntax_error(\"eof\")", 1)
+    write_line("", 0)
+
+def generate_syntax_analyzer_code (grammar, lexer = "lexer.py"):
+    copy_lexer(lexer)
     generate_prediction_sets(grammar)
     generate_syntax_error()
     generate_match()
@@ -109,46 +140,56 @@ def generate_syntax_analyzer_code (grammar):
 
             for a in right_part:
                 if is_terminal(a):
-                    write_line("match(\"" + a + "\")", 2)
+                    write_line("if not match(\"" + a + "\"):", 2)
+                    write_line("return False", 3)
                 else:
-                    write_line(a + "()", 2)
+                    write_line("if not " + a + "():", 2)
+                    write_line("return False", 3)
         else:
             if (len(right_part) == 1 and right_part[0] == "epsilon") == False:
                 write_line("elif token.type in predictions[\"" + string_rule(rule) + "\"]:", 1)
 
                 for a in right_part:
                     if is_terminal(a):
-                        write_line("match(\"" + a + "\")", 2)
+                        write_line("if not match(\"" + a + "\"):", 2)
+                        write_line("return False", 3)
                     else:
-                        write_line(a + "()", 2)
+                        write_line("if not " + a + "():", 2)
+                        write_line("return False", 3)
 
         if i + 1 < len(grammar):
             if left_part != grammar[i + 1][0][0]:
                 write_line("elif \"" + left_part + "->epsilon\" in predictions:", 1)
-                write_line("return", 2)
+                write_line("return True", 2)
                 write_line("else:", 1)
                 write_line("print syntax_error(\"" + left_part + "\", token, False)", 2)
+                write_line("return False", 2)
+                write_line("return True", 1)
                 write_line("", 0)
         else:
             write_line("elif \"" + left_part + "->epsilon\" in predictions:", 1)
-            write_line("return", 2)
+            write_line("return True", 2)
             write_line("else:", 1)
             write_line("print syntax_error(\"" + left_part + "\", token, False)", 2)
+            write_line("return False", 2)
+            write_line("return True", 1)
             write_line("", 0)
 
         for prediction in pred:
             expected[prediction] = True
 
+    generate_run_syntax_analyzer(grammar)
     generate_grammar_string(grammar)
     write_line("expected = {}", 0)
     write_line("predictions = {}", 0)
     write_line("generate_prediction_sets(grammar)", 0)
-    write_line("token = get_next_token()", 0)
-    write_line(grammar[0][0][0] + "()", 0)
-    #write_line("if token != token_eof:", 0)
-    #write_line("print syntax_error(\"eof\")", 1)
+    write_line("", 0)
+
+    write_line("token = Token()", 0)
+    write_line("run_syntax_analyzer(\"ejemplos2/1.in\")", 0)
 
 
-stdout = open("syntax_analizer.py", "w")
+
+stdout = open("syntax_analyzer.py", "w")
 generate_syntax_analyzer_code(read_grammar("grammars/grammar1.txt"))
 stdout.close()

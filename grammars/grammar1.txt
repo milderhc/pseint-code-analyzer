@@ -1,6 +1,6 @@
 1|PSEINT : FUNCION_SUBPROC PROCESO FUNCION_SUBPROC|funcion, subproceso, proceso, algoritmo
 2|FUNCION_SUBPROC : PROC FUNCION_SUBPROC|funcion, subproceso
-3|FUNCION_SUBPROC : epsilon|proceso, algoritmo, token_eof
+3|FUNCION_SUBPROC : epsilon|proceso, algoritmo, EOF
 4|PROCESO : INICIO_PROCESO id BLOQUE FIN_PROCESO|proceso, algoritmo
 5|INICIO_PROCESO : proceso|proceso
 6|INICIO_PROCESO : algoritmo|algoritmo

@@ -1,11 +1,4 @@
-#
-# Lexer Taller 1
-#
-#
-from itertools import chain
-from sys import stdin
 import re
-import filecmp
 
 def initialize_keywords():
     global keywords
@@ -139,7 +132,7 @@ def read_comment(line):
 
     index = col
     if index + 1 < length_line and line[index + 1] == "/": # It's a comment
-        token = line[index:-1]
+        token = line[index:]
         advance = len(token)
 
     return token, advance
@@ -356,25 +349,25 @@ def build_token(title, lexema, r, c):
 
 
 class Token(object):
-    def __init__(self, title, lexema, r, c):
+    def __init__(self, title = None, lexema = None, r = None, c = None):
         global keywords, operators
-
-        if lexema in keywords:
-            if lexema not in operators:
+        if title != None:
+            if lexema in keywords:
+                if lexema not in operators:
+                    self.lexema = lexema
+                    self.type = lexema
+                else:
+                    self.lexema = operators[lexema]
+                    self.type = operators[lexema]
+            elif lexema in operators:
+                self.type = title
                 self.lexema = lexema
-                self.type = lexema
             else:
-                self.lexema = operators[lexema]
-                self.type = operators[lexema]
-        elif lexema in operators:
-            self.type = title
-            self.lexema = lexema
-        else:
-            self.lexema = lexema.lower()
-            self.type = title
+                self.lexema = lexema.lower() if lexema != "EOF" else "EOF"
+                self.type = title
 
-        self.row = r
-        self.col = c
+            self.row = r
+            self.col = c
 
 current_token = 0
 def get_next_token():
@@ -384,13 +377,17 @@ def get_next_token():
     return tokens[c]
 
 
-def read_data():
+def generate_tokens(input = None, output = None):
     global tokens, row, col
 
-    lines = stdin.readlines()
+    lines = []
+    if input != None:
+        stdin = open(input, "r")
+        lines = stdin.readlines()
+    if output != None:
+        stdout = open(output, "w")
 
     tokens = []
-
     type = ""
 
     for line in lines:
@@ -398,58 +395,24 @@ def read_data():
             type, token, x, y = next_token(line)
             if type is not "token_otro" and type is not "lex_error" and type is not "token_comentario":
                 #print build_token(type, token, x + 1, y + 1)
-
-                #Prints in file
+                #if output != None:
+                #    stdout.write(build_token(type, token, x + 1, y + 1) + "\n")
                 tokens.append(Token(type, token, x + 1, y + 1))
-                stdout.write(build_token(type, token, x + 1, y + 1) + "\n")
 
         if type is "lex_error":
             #print lex_error()
-
-            # Prints in file
-            stdout.write(str(lex_error()) + "\n")
-            break
+            #if output != None:
+            #    stdout.write(lex_error() + "\n")
+            return
 
         row += 1
         col = 0
-
-    tokens.append(Token("token_eof", "token_eof", row + 1, col + 1))
-
-    for token in tokens:
-        print token.type, token.lexema, token.row, token.col
-
-    #return tokens
-
-
-def join_file (file):
-    str = ""
-    with open(file) as f:
-        str += "".join(line.strip() for line in f)
-    return str
-
+    tokens.append(Token("EOF", "EOF", row + 1, col + 1))
 
 tokens = []
 keywords = {}
 operators = {}
-
 initialize_keywords()
 initialize_operators()
 row = 0
 col = 0
-
-examples = 1
-for i in range(1,examples + 1):
-    stdin = open("ejemplos2/" + str(i) + ".in", "r")
-    output_file = str(i) + ".out"
-    stdout = open("output/" + output_file, "w")
-
-    row = 0
-    col = 0
-    read_data()
-
-    stdout.close()
-
-    #assert join_file("ejemplos/" + output_file) == join_file("output/" + output_file), "Error in file " + output_file
-
-
-
