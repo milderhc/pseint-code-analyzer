@@ -1,64 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f9182d8-c075-4bc5-b688-2e1db6b0bbf9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A1.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A1.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A2.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A2.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A3.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A3.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A4.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A4.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A5.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A5.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B1.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B1.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B2.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B2.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B3.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B3.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B4.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B4.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B5.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B5.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C1.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C1.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C2.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C2.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C3.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C3.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C4.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C4.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C5.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C5.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D1.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D1.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D2.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D2.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D3.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D3.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D4.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D4.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D5.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D5.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E1.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E1.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E2.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E2.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E3.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E3.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E4.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E4.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E5.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E5.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ejemplos2/8.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grammars/grammar3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grammars/old_grammar.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grammars/pseint_grammar.txt" />
+    <list default="true" id="3f9182d8-c075-4bc5-b688-2e1db6b0bbf9" name="Default" comment="Update project">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grammars/grammar1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grammars/grammar2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grammars/grammar3.txt" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/pseint-analyzer.iml" afterPath="$PROJECT_DIR$/.idea/pseint-code-analyzer.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A1.in" afterPath="$PROJECT_DIR$/test-cases/A/L_P2_A1.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A1.out" afterPath="$PROJECT_DIR$/test-cases/A/L_P2_A1.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A2.in" afterPath="$PROJECT_DIR$/test-cases/A/L_P2_A2.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A2.out" afterPath="$PROJECT_DIR$/test-cases/A/L_P2_A2.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A3.in" afterPath="$PROJECT_DIR$/test-cases/A/L_P2_A3.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A3.out" afterPath="$PROJECT_DIR$/test-cases/A/L_P2_A3.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A4.in" afterPath="$PROJECT_DIR$/test-cases/A/L_P2_A4.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A4.out" afterPath="$PROJECT_DIR$/test-cases/A/L_P2_A4.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A5.in" afterPath="$PROJECT_DIR$/test-cases/A/L_P2_A5.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A5.out" afterPath="$PROJECT_DIR$/test-cases/A/L_P2_A5.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B1.in" afterPath="$PROJECT_DIR$/test-cases/B/L_P2_B1.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B1.out" afterPath="$PROJECT_DIR$/test-cases/B/L_P2_B1.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B2.in" afterPath="$PROJECT_DIR$/test-cases/B/L_P2_B2.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B2.out" afterPath="$PROJECT_DIR$/test-cases/B/L_P2_B2.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B3.in" afterPath="$PROJECT_DIR$/test-cases/B/L_P2_B3.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B3.out" afterPath="$PROJECT_DIR$/test-cases/B/L_P2_B3.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B4.in" afterPath="$PROJECT_DIR$/test-cases/B/L_P2_B4.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B4.out" afterPath="$PROJECT_DIR$/test-cases/B/L_P2_B4.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B5.in" afterPath="$PROJECT_DIR$/test-cases/B/L_P2_B5.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B5.out" afterPath="$PROJECT_DIR$/test-cases/B/L_P2_B5.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C1.in" afterPath="$PROJECT_DIR$/test-cases/C/L_P2_C1.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C1.out" afterPath="$PROJECT_DIR$/test-cases/C/L_P2_C1.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C2.in" afterPath="$PROJECT_DIR$/test-cases/C/L_P2_C2.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C2.out" afterPath="$PROJECT_DIR$/test-cases/C/L_P2_C2.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C3.in" afterPath="$PROJECT_DIR$/test-cases/C/L_P2_C3.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C3.out" afterPath="$PROJECT_DIR$/test-cases/C/L_P2_C3.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C4.in" afterPath="$PROJECT_DIR$/test-cases/C/L_P2_C4.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C4.out" afterPath="$PROJECT_DIR$/test-cases/C/L_P2_C4.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C5.in" afterPath="$PROJECT_DIR$/test-cases/C/L_P2_C5.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C5.out" afterPath="$PROJECT_DIR$/test-cases/C/L_P2_C5.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D1.in" afterPath="$PROJECT_DIR$/test-cases/D/L_P2_D1.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D1.out" afterPath="$PROJECT_DIR$/test-cases/D/L_P2_D1.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D2.in" afterPath="$PROJECT_DIR$/test-cases/D/L_P2_D2.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D2.out" afterPath="$PROJECT_DIR$/test-cases/D/L_P2_D2.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D3.in" afterPath="$PROJECT_DIR$/test-cases/D/L_P2_D3.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D3.out" afterPath="$PROJECT_DIR$/test-cases/D/L_P2_D3.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D4.in" afterPath="$PROJECT_DIR$/test-cases/D/L_P2_D4.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D4.out" afterPath="$PROJECT_DIR$/test-cases/D/L_P2_D4.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D5.in" afterPath="$PROJECT_DIR$/test-cases/D/L_P2_D5.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D5.out" afterPath="$PROJECT_DIR$/test-cases/D/L_P2_D5.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E1.in" afterPath="$PROJECT_DIR$/test-cases/E/L_P2_E1.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E1.out" afterPath="$PROJECT_DIR$/test-cases/E/L_P2_E1.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E2.in" afterPath="$PROJECT_DIR$/test-cases/E/L_P2_E2.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E2.out" afterPath="$PROJECT_DIR$/test-cases/E/L_P2_E2.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E3.in" afterPath="$PROJECT_DIR$/test-cases/E/L_P2_E3.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E3.out" afterPath="$PROJECT_DIR$/test-cases/E/L_P2_E3.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E4.in" afterPath="$PROJECT_DIR$/test-cases/E/L_P2_E4.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E4.out" afterPath="$PROJECT_DIR$/test-cases/E/L_P2_E4.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E5.in" afterPath="$PROJECT_DIR$/test-cases/E/L_P2_E5.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E5.out" afterPath="$PROJECT_DIR$/test-cases/E/L_P2_E5.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/1.in" afterPath="$PROJECT_DIR$/examples_1/1.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/1.out" afterPath="$PROJECT_DIR$/examples_1/1.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/10.in" afterPath="$PROJECT_DIR$/examples_1/10.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/10.out" afterPath="$PROJECT_DIR$/examples_1/10.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/11.in" afterPath="$PROJECT_DIR$/examples_1/11.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/11.out" afterPath="$PROJECT_DIR$/examples_1/11.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/12.in" afterPath="$PROJECT_DIR$/examples_1/12.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/12.out" afterPath="$PROJECT_DIR$/examples_1/12.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/2.in" afterPath="$PROJECT_DIR$/examples_1/2.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/2.out" afterPath="$PROJECT_DIR$/examples_1/2.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/3.in" afterPath="$PROJECT_DIR$/examples_1/3.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/3.out" afterPath="$PROJECT_DIR$/examples_1/3.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/4.in" afterPath="$PROJECT_DIR$/examples_1/4.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/4.out" afterPath="$PROJECT_DIR$/examples_1/4.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/5.in" afterPath="$PROJECT_DIR$/examples_1/5.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/5.out" afterPath="$PROJECT_DIR$/examples_1/5.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/6.in" afterPath="$PROJECT_DIR$/examples_1/6.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/6.out" afterPath="$PROJECT_DIR$/examples_1/6.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/7.in" afterPath="$PROJECT_DIR$/examples_1/7.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/7.out" afterPath="$PROJECT_DIR$/examples_1/7.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/8.in" afterPath="$PROJECT_DIR$/examples_1/8.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/8.out" afterPath="$PROJECT_DIR$/examples_1/8.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/9.in" afterPath="$PROJECT_DIR$/examples_1/9.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos/9.out" afterPath="$PROJECT_DIR$/examples_1/9.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/1.in" afterPath="$PROJECT_DIR$/examples_2/1.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/1.out" afterPath="$PROJECT_DIR$/examples_2/1.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/2.in" afterPath="$PROJECT_DIR$/examples_2/2.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/2.out" afterPath="$PROJECT_DIR$/examples_2/2.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/3.in" afterPath="$PROJECT_DIR$/examples_2/3.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/3.out" afterPath="$PROJECT_DIR$/examples_2/3.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/4.in" afterPath="$PROJECT_DIR$/examples_2/4.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/4.out" afterPath="$PROJECT_DIR$/examples_2/4.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/5.in" afterPath="$PROJECT_DIR$/examples_2/5.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/5.out" afterPath="$PROJECT_DIR$/examples_2/5.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/6.in" afterPath="$PROJECT_DIR$/examples_2/6.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/6.out" afterPath="$PROJECT_DIR$/examples_2/6.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/7.in" afterPath="$PROJECT_DIR$/examples_2/7.in" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/7.out" afterPath="$PROJECT_DIR$/examples_2/7.out" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ejemplos2/8.in" afterPath="$PROJECT_DIR$/examples_2/8.in" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lexer.py" afterPath="$PROJECT_DIR$/lexer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/syntax_analyzer.py" afterPath="$PROJECT_DIR$/syntax_analyzer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/syntax_analyzer_code_generator.py" afterPath="$PROJECT_DIR$/syntax_analyzer_code_generator.py" />
@@ -81,11 +123,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="syntax_analyzer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="syntax_analyzer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/syntax_analyzer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="1893" column="27" selection-start-line="1893" selection-start-column="27" selection-end-line="1893" selection-end-column="27" />
+            <state relative-caret-position="421">
+              <caret line="1911" column="29" selection-start-line="1911" selection-start-column="29" selection-end-line="1911" selection-end-column="29" />
               <folding>
                 <element signature="e#76#85#0" expanded="true" />
               </folding>
@@ -96,8 +138,28 @@
       <file leaf-file-name="syntax_analyzer_code_generator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/syntax_analyzer_code_generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2715">
-              <caret line="181" column="37" selection-start-line="181" selection-start-column="37" selection-end-line="181" selection-end-column="37" />
+            <state relative-caret-position="3150">
+              <caret line="210" column="40" selection-start-line="210" selection-start-column="40" selection-end-line="210" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lexer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lexer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2745">
+              <caret line="185" column="45" selection-start-line="185" selection-start-column="45" selection-end-line="185" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -121,25 +183,28 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ejemplos/12.in" />
-        <option value="$PROJECT_DIR$/grammars/grammar2.txt" />
-        <option value="$PROJECT_DIR$/grammars/grammar1.txt" />
-        <option value="$PROJECT_DIR$/ejemplos/2.in" />
-        <option value="$PROJECT_DIR$/ejemplos2/1.in" />
-        <option value="$PROJECT_DIR$/syntax.py" />
-        <option value="$PROJECT_DIR$/syntax_analizer.py" />
-        <option value="$PROJECT_DIR$/ejemplos2/7.in" />
-        <option value="$PROJECT_DIR$/ejemplos2/3.in" />
-        <option value="$PROJECT_DIR$/ejemplos2/8.in" />
-        <option value="$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C1.in" />
-        <option value="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D2.in" />
-        <option value="$PROJECT_DIR$/grammars/grammar3.txt" />
-        <option value="$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D3.in" />
-        <option value="$PROJECT_DIR$/syntax_analyzer_code_generator.py" />
-        <option value="$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B2.in" />
-        <option value="$PROJECT_DIR$/grammars/grammar4.txt" />
-        <option value="$PROJECT_DIR$/lexer.py" />
-        <option value="$PROJECT_DIR$/lexer.py" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/ejemplos/12.in" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/grammars/grammar2.txt" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/grammars/grammar1.txt" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/ejemplos/2.in" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/ejemplos2/1.in" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/syntax.py" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/syntax_analizer.py" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/ejemplos2/7.in" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/ejemplos2/3.in" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/ejemplos2/8.in" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/Casos-de-prueba-sintactico/C/L_P2_C1.in" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/Casos-de-prueba-sintactico/D/L_P2_D2.in" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/grammars/grammar3.txt" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/Casos-de-prueba-sintactico/D/L_P2_D3.in" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/Casos-de-prueba-sintactico/B/L_P2_B2.in" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/grammars/grammar4.txt" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/syntax_analyzer.py" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/README.md" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/lexer.py" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/lexer.py" />
+        <option value="$PROJECT_DIR$/../pseint-analyzer/syntax_analyzer_code_generator.py" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/syntax_analyzer.py" />
       </list>
     </option>
@@ -194,70 +259,36 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pseint-analyzer" />
+              <option name="myItemId" value="pseint-code-analyzer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pseint-analyzer" />
+              <option name="myItemId" value="pseint-code-analyzer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pseint-analyzer" />
+              <option name="myItemId" value="pseint-code-analyzer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pseint-analyzer" />
   </component>
-  <component name="RunManager" selected="Python.syntax_analyzer">
-    <configuration default="false" name="lexer (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="pseint-analyzer" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lexer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="syntax" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="pseint-analyzer" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/syntax_analyzer_code_generator.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.syntax_analyzer_code_generator">
     <configuration default="false" name="syntax_analyzer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -269,8 +300,25 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="pseint-analyzer" />
+      <module name="pseint-code-analyzer" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/syntax_analyzer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="syntax_analyzer_code_generator" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="pseint-code-analyzer" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/syntax_analyzer_code_generator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -409,16 +457,14 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Python.lexer (1)" />
-      <item index="1" class="java.lang.String" itemvalue="Python.syntax" />
-      <item index="2" class="java.lang.String" itemvalue="Python.syntax_analyzer" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.syntax_analyzer" />
+      <item index="1" class="java.lang.String" itemvalue="Python.syntax_analyzer_code_generator" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.syntax_analyzer" />
-        <item index="1" class="java.lang.String" itemvalue="Python.syntax" />
-        <item index="2" class="java.lang.String" itemvalue="Python.lexer (1)" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.syntax_analyzer_code_generator" />
+        <item index="1" class="java.lang.String" itemvalue="Python.syntax_analyzer" />
       </list>
     </recent_temporary>
   </component>
@@ -492,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1474868838946</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Correct pseint grammar and fix some lexer errors">
+      <created>1474925368302</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1474925368302</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -557,7 +610,8 @@
     <MESSAGE value="Add way to include lexer automatically" />
     <MESSAGE value="Add alias array" />
     <MESSAGE value="Fix Segun terminals and other errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Segun terminals and other errors" />
+    <MESSAGE value="Correct pseint grammar and fix some lexer errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correct pseint grammar and fix some lexer errors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -569,22 +623,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/syntax_analyzer.py</url>
-          <line>700</line>
+          <line>705</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/syntax_analyzer.py</url>
-          <line>578</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/syntax_analyzer.py</url>
-          <line>548</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/syntax_analyzer.py</url>
-          <line>1110</line>
+          <line>1115</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
@@ -612,9 +656,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#76#85#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -622,9 +664,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#76#85#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -632,9 +672,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#76#85#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -642,9 +680,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#76#85#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -655,13 +691,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grammars/grammar2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../pseint-analyzer/grammars/grammar2.txt" />
     <entry file="file://$PROJECT_DIR$/output/8.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -676,7 +706,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos/12.in">
+    <entry file="file://$PROJECT_DIR$/examples_1/12.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
@@ -690,263 +720,234 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos/2.in">
+    <entry file="file://$PROJECT_DIR$/examples_1/2.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/syntax_analizer.py" />
-    <entry file="file://$PROJECT_DIR$/ejemplos2/4.in">
+    <entry file="file://$PROJECT_DIR$/../pseint-analyzer/syntax_analizer.py" />
+    <entry file="file://$PROJECT_DIR$/examples_2/4.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos2/2.out">
+    <entry file="file://$PROJECT_DIR$/examples_2/2.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos2/3.out">
+    <entry file="file://$PROJECT_DIR$/examples_2/3.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="225" selection-start-line="0" selection-start-column="225" selection-end-line="0" selection-end-column="225" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos2/7.in">
+    <entry file="file://$PROJECT_DIR$/examples_2/7.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos2/3.in">
+    <entry file="file://$PROJECT_DIR$/examples_2/3.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos2/8.in">
+    <entry file="file://$PROJECT_DIR$/examples_2/8.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos2/1.out">
+    <entry file="file://$PROJECT_DIR$/examples_2/1.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="60" selection-start-line="0" selection-start-column="60" selection-end-line="0" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos2/1.in">
+    <entry file="file://$PROJECT_DIR$/examples_2/1.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos2/4.out">
+    <entry file="file://$PROJECT_DIR$/examples_2/4.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos2/5.out">
+    <entry file="file://$PROJECT_DIR$/examples_2/5.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="73" selection-start-line="0" selection-start-column="73" selection-end-line="0" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos2/6.out">
+    <entry file="file://$PROJECT_DIR$/examples_2/6.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ejemplos2/7.out">
+    <entry file="file://$PROJECT_DIR$/examples_2/7.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grammars/grammar1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A1.out">
+    <entry file="file://$PROJECT_DIR$/../pseint-analyzer/grammars/grammar1.txt" />
+    <entry file="file://$PROJECT_DIR$/test-cases/A/L_P2_A1.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A2.out">
+    <entry file="file://$PROJECT_DIR$/test-cases/A/L_P2_A2.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A2.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/A/L_P2_A2.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A1.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/A/L_P2_A1.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A5.out">
+    <entry file="file://$PROJECT_DIR$/test-cases/A/L_P2_A5.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/A/L_P2_A5.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/A/L_P2_A5.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/C/L_P2_C1.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/C/L_P2_C1.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D2.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/D/L_P2_D2.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grammars/grammar3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D4.in">
+    <entry file="file://$PROJECT_DIR$/../pseint-analyzer/grammars/grammar3.txt" />
+    <entry file="file://$PROJECT_DIR$/test-cases/D/L_P2_D4.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D1.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/D/L_P2_D1.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D3.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/D/L_P2_D3.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/D/L_P2_D5.out">
+    <entry file="file://$PROJECT_DIR$/test-cases/D/L_P2_D5.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E5.out">
+    <entry file="file://$PROJECT_DIR$/test-cases/E/L_P2_E5.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E3.out">
+    <entry file="file://$PROJECT_DIR$/test-cases/E/L_P2_E3.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/E/L_P2_E3.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/E/L_P2_E3.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B3.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/B/L_P2_B3.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B1.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/B/L_P2_B1.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B2.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/B/L_P2_B2.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B5.out">
+    <entry file="file://$PROJECT_DIR$/test-cases/B/L_P2_B5.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lexer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="177" column="36" selection-start-line="177" selection-start-column="36" selection-end-line="177" selection-end-column="36" />
-          <folding>
-            <element signature="e#76#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Casos-de-prueba-sintactico/B/L_P2_B4.in">
+    <entry file="file://$PROJECT_DIR$/test-cases/B/L_P2_B4.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="16" column="19" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="19" />
@@ -955,26 +956,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grammars/pseint_grammar.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        <state relative-caret-position="150">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/syntax_analyzer_code_generator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2715">
-          <caret line="181" column="37" selection-start-line="181" selection-start-column="37" selection-end-line="181" selection-end-column="37" />
+        <state relative-caret-position="3150">
+          <caret line="210" column="40" selection-start-line="210" selection-start-column="40" selection-end-line="210" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lexer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2745">
+          <caret line="185" column="45" selection-start-line="185" selection-start-column="45" selection-end-line="185" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/syntax_analyzer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="1893" column="27" selection-start-line="1893" selection-start-column="27" selection-end-line="1893" selection-end-column="27" />
+        <state relative-caret-position="421">
+          <caret line="1911" column="29" selection-start-line="1911" selection-start-column="29" selection-end-line="1911" selection-end-column="29" />
           <folding>
             <element signature="e#76#85#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,5 @@
-# @Author: Milder Hernandez Cagua
-# @Author: Fabian David Conejo Piraquive
+# @author: Milder Hernandez Cagua
+# @author: Fabian David Conejo Piraquive
 
 import re
 from sys import stdin
@@ -509,6 +509,11 @@ initialize_operators()
 initialize_alias()
 row = 0
 col = 0
+
+#####################################################################################################
+######################################### SYNTAX ANALYZER ###########################################
+#####################################################################################################
+
 def generate_prediction_sets(grammar):
     global expected
     grammar_array = grammar.split(";")
@@ -1910,5 +1915,5 @@ predictions = {}
 generate_prediction_sets(grammar)
 
 token = Token()
-run_syntax_analyzer()
+run_syntax_analyzer("test-cases/E/L_P2_E2.in")
 

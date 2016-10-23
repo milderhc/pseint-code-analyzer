@@ -1,5 +1,5 @@
-# @Author: Milder Hernandez Cagua
-# @Author: Fabian David Conejo Piraquive
+# @author: Milder Hernandez Cagua
+# @author: Fabian David Conejo Piraquive
 
 import re
 from sys import stdin

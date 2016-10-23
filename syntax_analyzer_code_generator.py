@@ -124,8 +124,18 @@ def generate_run_syntax_analyzer(grammar):
     # write_line("print syntax_error(\"eof\")", 1)
     write_line("", 0)
 
+
+def set_title():
+    write_line("", 0)
+    write_line("#####################################################################################################", 0)
+    write_line("######################################### SYNTAX ANALYZER ###########################################", 0)
+    write_line("#####################################################################################################", 0)
+    write_line("", 0)
+
+
 def generate_syntax_analyzer_code (grammar, lexer = "lexer.py"):
     copy_lexer(lexer)
+    set_title()
     generate_prediction_sets(grammar)
     generate_syntax_error()
     generate_match()
@@ -193,7 +203,7 @@ def generate_syntax_analyzer_code (grammar, lexer = "lexer.py"):
     write_line("", 0)
 
     write_line("token = Token()", 0)
-    write_line("run_syntax_analyzer(\"Casos-de-prueba-sintactico/E/L_P2_E1.in\")", 0)
+    write_line("run_syntax_analyzer(\"test-cases/E/L_P2_E2.in\")", 0)
 
     write_line("", 0)
 
